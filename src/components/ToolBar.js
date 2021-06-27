@@ -13,7 +13,7 @@ class ToolBar extends Component{
     render(){
         return(
             <div className="col-3">
-                
+                <p>this will make the app change</p>
             </div>
         )
     }
