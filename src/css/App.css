@@ -1,7 +1,10 @@
 body {
-    background-color: black;
 }
 
 .white-text {
     color: white;
+}
+
+.box {
+    border: 1px solid black;
 }
