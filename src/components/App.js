@@ -15,15 +15,10 @@ class App extends Component{
   } 
 
   render() {
-  
+
     return (
-      <div className="white-text">
-        <header>
-          <div className="row">
-            <ToolBar />
-            <Calendar />
-          </div>
-        </header>
+      <div>
+
       </div>
     );
   }
