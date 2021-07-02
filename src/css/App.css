@@ -1,10 +1,12 @@
 body {
+    background-color: black;
 }
 
-.white-text {
+.text {
     color: white;
 }
 
 .box {
-    border: 1px solid black;
+    border: 1px solid white;
+    height: 150px;
 }
