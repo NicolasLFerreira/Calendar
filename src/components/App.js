@@ -14,7 +14,10 @@ class App extends Component{
 
   render() {
 
-    var month = <Month id={1} name={"January"} size={31}/>
+    var month = []
+    month.push(<Month id="January" size={1}/>)
+    month.push(<div><br></br><br></br><br></br></div>)
+    month.push(<Month id="February" size={-2}/>)
 
     return (
       <div className="row">
@@ -46,9 +49,7 @@ class App extends Component{
           </div>
         </div>
         <div className="col-7">
-          <div className="container">
-            {month}
-          </div>
+          {month}
         </div>
       </div>
     );
