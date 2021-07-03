@@ -6,10 +6,13 @@ class Month extends Component{
         super(props)
 
         this.state = {
-            id: this.props.monthId,
-            name: this.props.monthName,
-            size: 30 + this.props.monthSize
+            id: this.props.id,
+            size: 30 + this.props.size
         }
+    }
+
+    manageLocalStorage = () => {
+        localStorage.setItem(this.state.id, "soon I will have some json here")
     }
 
     render(){
@@ -17,23 +20,36 @@ class Month extends Component{
         var week = []
         var days = []
 
-        for(var i = this.state.size; i > 0; i--){
-        days.push(<Day day={i}/>)
+        // The empty squares 
+        for(var fixDay = 0; fixDay < 35 - this.state.size; fixDay++){
+            days.push(<Day day=" " content=""/>)
         }
 
-        for(var j = 0; j < 5; j++){
-            for(var i = 1; i < 8; i++){
+        // Creates the days
+        for(var currentDay = this.state.size; currentDay > 0; currentDay--){
+            days.push(<Day day={currentDay} content="Content"/>)
+        }
+
+        // Creates the weeks
+        for(var weekIndex = 0; weekIndex <= 4; weekIndex++){
+            for(var weekDay = 1; weekDay <= 7; weekDay++){
                 week.push(days.pop())
-                if (j == 4 && i > this.state.size - 35){
-                week.push(<div className="col box text"> </div>)
-                }
             }
             month.push(<div className="row">{week}</div>)
             week = []
         }
-    
+
+        this.manageLocalStorage();
+
         return(
-            month
+            <div className="container">
+                <div className="row">
+                    <div className="box text display-1">
+                        {this.state.id}
+                    </div>
+                </div>
+                {month}
+            </div>
         )
     }
 }

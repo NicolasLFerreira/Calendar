@@ -5,16 +5,16 @@ class Day extends Component {
         super(props)
 
         this.state = {
-            day: this.props.day
+            day: this.props.day,
+            content: this.props.content
         }
-
     }
 
     render(){
         return(
             <div className="col box text">
-                <div className="row">{this.state.day}</div>
-                <div className="row">Content</div>
+                <div className="row display-6"><p>{this.state.day}</p></div>
+                <div className="row">{this.state.content}</div>
             </div>
         )
     }
