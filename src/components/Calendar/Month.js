@@ -13,11 +13,11 @@ class Month extends Component{
     }
 
     setJson(){
+        localStorage.clear()
         localStorage.setItem("apr01", "Cake.")
-        localStorage.setItem("dec25", "Jesus death!")
         localStorage.setItem("aug23", "Cauã's Aniversary!")
         localStorage.setItem("mar24", "Guilherme's Aniversary!")
-        localStorage.setItem("jul18", "Nicolas' Aniversary!")
+        localStorage.setItem("jul18", "Nicolas's Aniversary!")
     }
 
     render(){

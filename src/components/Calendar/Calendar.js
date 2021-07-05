@@ -5,8 +5,8 @@ import Year from "./Year"
 const months = [1,-2,1,0,1,0,1,1,0,1,0,1]
 
 class Calendar extends Component{
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
 
         this.state = {
             
@@ -17,7 +17,7 @@ class Calendar extends Component{
 
         return(
             <div className="col-7">
-                <Year />
+                <Year monthNum={11}/>
             </div>
         )
     }
