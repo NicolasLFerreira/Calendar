@@ -11,15 +11,19 @@ class Month extends Component{
         }
     }
 
-    manageLocalStorage = () => {
-        localStorage.setItem(this.state.id, "soon I will have some json here")
+    setJson(){
+        localStorage.setItem(5, "whatever")
     }
 
     render(){
+        this.setJson()
+
         var month = []
         var week = []
         var days = []
 
+        var content
+        
         // The empty squares 
         for(var fixDay = 0; fixDay < 35 - this.state.size; fixDay++){
             days.push(<Day day=" " content=""/>)
@@ -27,7 +31,8 @@ class Month extends Component{
 
         // Creates the days
         for(var currentDay = this.state.size; currentDay > 0; currentDay--){
-            days.push(<Day day={currentDay} content="Content"/>)
+            content = localStorage.getItem(currentDay)
+            days.push(<Day day={currentDay} content={content}/>)
         }
 
         // Creates the weeks
@@ -38,8 +43,6 @@ class Month extends Component{
             month.push(<div className="row">{week}</div>)
             week = []
         }
-
-        this.manageLocalStorage();
 
         return(
             <div className="container">

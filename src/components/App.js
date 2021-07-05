@@ -1,6 +1,10 @@
 import { computeHeadingLevel } from "@testing-library/react"
 import React, {Component} from "react"
+
 import "../css/App.css"
+
+import Calendar from "./Calendar/Calendar"
+import Year from "./Calendar/Year"
 import Month from "./Calendar/Month"
 
 class App extends Component{
@@ -8,16 +12,11 @@ class App extends Component{
     super()
 
     this.state = {
-
+      year: new Year()
     }
   } 
-
+  
   render() {
-
-    var month = []
-    month.push(<Month id="January" size={1}/>)
-    month.push(<div><br></br><br></br><br></br></div>)
-    month.push(<Month id="February" size={-2}/>)
 
     return (
       <div className="row">
@@ -48,12 +47,10 @@ class App extends Component{
             </div>
           </div>
         </div>
-        <div className="col-7">
-          {month}
-        </div>
+        {<Calendar />}
       </div>
     );
   }
 }
 
-export default App;
+export default App

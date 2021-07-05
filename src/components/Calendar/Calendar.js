@@ -1,5 +1,7 @@
 import React, {Component} from "react"
 
+import Year from "./Year"
+
 const months = [1,-2,1,0,1,0,1,1,0,1,0,1]
 
 class Calendar extends Component{
@@ -14,7 +16,8 @@ class Calendar extends Component{
     render(){
 
         return(
-            <div>
+            <div className="col-7">
+                <Year />
             </div>
         )
     }
