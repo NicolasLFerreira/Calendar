@@ -7,10 +7,11 @@ class Year extends Component{
 
         var month = []
         var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+        var ids = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"]
         var size = [1,-2,1,0,1,0,1,1,0,1,0,1]
 
         for(var currentMonth = 0; currentMonth <= 11; currentMonth++){
-            month.push(<Month id={months[currentMonth]} size={size[currentMonth]}/>)
+            month.push(<Month name={months[currentMonth]} id={ids[currentMonth]} size={size[currentMonth]}/>)
             month.push(<div><br></br><br></br><br></br></div>)
         }
 

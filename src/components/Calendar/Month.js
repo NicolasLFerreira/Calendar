@@ -6,13 +6,18 @@ class Month extends Component{
         super(props)
 
         this.state = {
+            name: this.props.name,
             id: this.props.id,
             size: 30 + this.props.size
         }
     }
 
     setJson(){
-        localStorage.setItem(5, "whatever")
+        localStorage.setItem("apr01", "Cake.")
+        localStorage.setItem("dec25", "Jesus death!")
+        localStorage.setItem("aug23", "Cauã's Aniversary!")
+        localStorage.setItem("mar24", "Guilherme's Aniversary!")
+        localStorage.setItem("jul18", "Nicolas' Aniversary!")
     }
 
     render(){
@@ -22,17 +27,27 @@ class Month extends Component{
         var week = []
         var days = []
 
+        var dayId
         var content
         
         // The empty squares 
         for(var fixDay = 0; fixDay < 35 - this.state.size; fixDay++){
-            days.push(<Day day=" " content=""/>)
+            days.push(<Day day="" content="" id={-1}/>)
         }
 
         // Creates the days
         for(var currentDay = this.state.size; currentDay > 0; currentDay--){
             content = localStorage.getItem(currentDay)
-            days.push(<Day day={currentDay} content={content}/>)
+
+            if(currentDay < 10){
+                dayId = this.state.id + "0" + String(currentDay)
+            }
+            else{
+                dayId = this.state.id + String(currentDay)
+            }
+
+            days.push(<Day day={currentDay} content={content} id={dayId}/>)
+            dayId = undefined
         }
 
         // Creates the weeks
@@ -48,7 +63,7 @@ class Month extends Component{
             <div className="container">
                 <div className="row">
                     <div className="box text display-1">
-                        {this.state.id}
+                        {this.state.name}
                     </div>
                 </div>
                 {month}
