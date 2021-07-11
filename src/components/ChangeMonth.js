@@ -7,7 +7,7 @@ class ChangeMonth extends Component{
 
     pageItem = (num) => {
         return(
-            <li class="page-item"><button class="page-link" href="#" onClick={() => this.props.changeMonth(num)}>{num}</button></li>
+            <li class="page-item"><button class="page-link" href="#" onClick={() => this.props.changeMonth(num)}>Month: {num}</button></li>
         )
     }
 
@@ -21,17 +21,7 @@ class ChangeMonth extends Component{
         return(
             <nav aria-label="Page navigation">
                 <ul class="pagination">
-                    <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Previous">
-                            <span aria-hidden="true">«</span>
-                        </a>
-                    </li>
                     {pageItems}
-                    <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Next">
-                        <span aria-hidden="true">»</span>
-                    </a>
-                    </li>
                 </ul>
             </nav>
         )

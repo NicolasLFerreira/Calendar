@@ -12,17 +12,7 @@ class Month extends Component{
         }
     }
 
-    setJson(){
-        localStorage.clear()
-        localStorage.setItem("apr01", "Cake.")
-        localStorage.setItem("aug23", "Cauã's Aniversary!")
-        localStorage.setItem("mar24", "Guilherme's Aniversary!")
-        localStorage.setItem("jul18", "Nicolas's Aniversary!")
-    }
-
     render(){
-        this.setJson()
-
         var month = []
         var week = []
         var days = []

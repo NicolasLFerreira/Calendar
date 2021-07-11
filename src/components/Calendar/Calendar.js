@@ -2,8 +2,6 @@ import React, {Component} from "react"
 import Year from "./Year"
 import ChangeMonth from "../ChangeMonth"
 
-const months = [1,-2,1,0,1,0,1,1,0,1,0,1]
-
 class Calendar extends Component{
     constructor(props){
         super(props)
@@ -13,8 +11,7 @@ class Calendar extends Component{
         }
     }
 
-    monthToShow = (index) => {
-        console.log("Month to show index: " + index)
+    ChangeMonth = (index) => {
         this.setState(() => {
             return{
                 showingMonth: index
@@ -23,11 +20,10 @@ class Calendar extends Component{
     }
 
     render(){
-        console.log("Showing month state: " + this.state.showingMonth)
         return(
             <div className="col-7"> 
-                <ChangeMonth changeMonth={(index) => this.monthToShow(index)}/>
-                <Year monthNum={this.state.showingMonth}/>
+                <ChangeMonth changeMonth={(index) => this.ChangeMonth(index)}/>
+                <Year monthNum={this.state.showingMonth} months={this.props.months} ids={this.props.ids} size={this.props.size}/>
             </div>
         )
     }
