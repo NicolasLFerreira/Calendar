@@ -1,5 +1,16 @@
 body {
     background-color: black;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.left-padding{
+    padding-left: 15px;
+}
+
+.spacing{
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 .text {
@@ -8,9 +19,5 @@ body {
 
 .box {
     border: 1px solid white;
-    height: 150px;
-}
-
-.big-box {
-    border: 1px solid black;
+    height: 145px;
 }

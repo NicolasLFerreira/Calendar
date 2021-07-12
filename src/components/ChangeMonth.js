@@ -19,11 +19,13 @@ class ChangeMonth extends Component{
         }
 
         return(
-            <nav aria-label="Page navigation">
-                <ul class="pagination">
-                    {pageItems}
-                </ul>
-            </nav>
+            <div className="container">
+                <nav aria-label="Page navigation">
+                    <ul class="pagination">
+                        {pageItems}
+                    </ul>
+                </nav>
+            </div>
         )
     }
 }

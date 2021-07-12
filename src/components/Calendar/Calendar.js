@@ -21,9 +21,9 @@ class Calendar extends Component{
 
     render(){
         return(
-            <div className="col-7"> 
+            <div className="col-7">
                 <ChangeMonth changeMonth={(index) => this.ChangeMonth(index)}/>
-                <Year monthNum={this.state.showingMonth} months={this.props.months} ids={this.props.ids} size={this.props.size}/>
+                <Year yearNum={2021} monthNum={this.state.showingMonth} months={this.props.months} ids={this.props.ids} size={this.props.size}/>
             </div>
         )
     }

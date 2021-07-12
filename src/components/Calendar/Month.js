@@ -28,14 +28,7 @@ class Month extends Component{
         // Creates the days
         for(var currentDay = this.state.size; currentDay > 0; currentDay--){
             content = localStorage.getItem(currentDay)
-
-            if(currentDay < 10){
-                dayId = this.state.id + "0" + String(currentDay)
-            }
-            else{
-                dayId = this.state.id + String(currentDay)
-            }
-
+            dayId = currentDay < 10 ? this.state.id + "0" + String(currentDay) : this.state.id + String(currentDay)
             days.push(<Day day={currentDay} content={content} id={dayId}/>)
             dayId = undefined
         }
