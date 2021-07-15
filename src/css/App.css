@@ -8,16 +8,10 @@ body {
     padding-left: 15px;
 }
 
-.spacing{
-    margin-left: 5px;
-    margin-right: 5px;
-}
-
 .text {
     color: white;
 }
 
 .box {
-    border: 1px solid white;
-    height: 145px;
+    height: 150px;
 }

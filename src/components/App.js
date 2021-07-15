@@ -2,11 +2,11 @@ import { computeHeadingLevel } from "@testing-library/react"
 import React, {Component} from "react"
 import "../css/App.css"
 import Calendar from "./Calendar/Calendar"
-import ToolBar from "./ToolBar"
+import ToolBar from "./Functionality/ToolBar"
 import Year from "./Calendar/Year"
 import Month from "./Calendar/Month"
-import ChangeMonth from "./ChangeMonth"
-import Button from "./Button"
+import ChangeMonth from "./Functionality/ChangeMonth"
+import Button from "./Functionality/Button"
 import logo from "../images/logo.png"
 
 const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
@@ -18,28 +18,8 @@ class App extends Component{
     super()
 
     this.state = {
-      selectedDate: undefined,
-      selectedDay: undefined,
-      selectedMonth: undefined,
-      newId: undefined,
-      contentInput: undefined
+      
     }
-  }
-
-  dateInput = (dom) => {
-    var input = document.getElementById(dom).value
-    var size = input.length
-    var dayInput = "" + input[size - 2] + input[size - 1]
-    var monthInput = "" + input[size - 5] + input[size - 4]
-
-    this.setState(() => {
-      return{
-        selectedDate: input,
-        selectedDay: dayInput,
-        selectedMonth: monthInput,
-        newId: ids[monthInput - 1] + dayInput
-      }
-    })
   }
 
   calendarRefresh = () => {

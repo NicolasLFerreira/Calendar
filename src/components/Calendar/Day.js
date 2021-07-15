@@ -12,7 +12,7 @@ class Day extends Component {
 
     render(){
         return(
-            <div className="col box text">
+            <div className="col box border text">
                 <div className="row display-6"><p>{this.state.day}</p></div>
                 <div className="row">{localStorage.getItem(this.state.id)}</div>
             </div>

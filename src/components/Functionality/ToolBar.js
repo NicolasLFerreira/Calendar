@@ -1,6 +1,5 @@
 import React, {Component} from "react"
 import Button from "./Button"
-import logo from "../images/logo.png"
 
 class ToolBar extends Component{
     constructor(props){
@@ -43,9 +42,13 @@ class ToolBar extends Component{
 
     // Creates a new event with the chosen content and for the chosen date and updates the calendar
     createEvent = () => {
-        var id = this.props.ids[this.state.selectedMonth - 1] + this.state.selectedDay
-        localStorage.setItem(id, this.state.contentInput)
+        localStorage.setItem(this.state.newId, this.state.contentInput)
         this.props.calendarRefresh()
+        this.setState(() => {
+            return{
+                newId: undefined
+            }
+        })
     }
 
     // Clears an event based on the chose date and updates the calendar
@@ -64,22 +67,39 @@ class ToolBar extends Component{
         return(
             <div className="row">
                 <div className="row">
-                    <Button text="Home" onClickAction={() => 0}/>
-                    <Button text="Settings" onClickAction={() => 0}/>
-                    <Button text="Help" onClickAction={() => 0}/>
+                    <Button text="Home (WIP)" onClickAction={() => 0}/>
+                    <Button text="Settings (WIP)" onClickAction={() => 0}/>
+                    <Button text="Help (WIP)" onClickAction={() => 0}/>
                 </div>
-                <div className="row">       
+                <div className="row">
+                    <br></br>
+                </div>
+                <div className="row">
                     <input className="form-control" id="input-content" placeholder="Content..." onInput={() => this.contentInput("input-content")}></input>
                     <input className="form-control" id="input-date" type="date" onInput={() => this.dateInput("input-date")}></input>
+                </div>
+                <div className="row">
+                    <br></br>
+                </div>
+                <div className="row">
                     <Button text="Create Event" onClickAction={() => this.createEvent()}/>
+                    <Button text="Delete Event" onClickAction={() => this.clearEvent()}/>
+                    <Button text="Delete All" onClickAction={() => this.clearEvents()}/>
                 </div>
                 <div className="row">
-                    <Button text="Clear Event" onClickAction={() => this.clearEvent()}/>
-                    <Button text="Clear All" onClickAction={() => this.clearEvents()}/>
+                    <br></br>
                 </div>
                 <div className="row">
-                    <Button text="Template" onClickAction={() => 0}/>
-                    <Button text="Notification" onClickAction={() => 0}/>
+                    <Button text="Template (WIP)" onClickAction={() => 0}/>
+                </div>
+                <div className="row">
+                    <Button text="Notification (WIP)" onClickAction={() => 0}/>
+                </div>
+                <div className="row"><br></br></div>
+                <div className="row">
+                    <div className="box border text">
+                        (WIP) upcoming events will here
+                    </div>
                 </div>
             </div>
         )

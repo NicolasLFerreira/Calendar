@@ -1,6 +1,7 @@
 import React, {Component} from "react"
 import Month from "./Month"
 
+
 class Year extends Component{
     constructor(props){
         super(props)
@@ -19,7 +20,7 @@ class Year extends Component{
 
     render(){
         return(
-            <div className="big-box">
+            <div>
                 {this.buildMonth()}
             </div>
         )

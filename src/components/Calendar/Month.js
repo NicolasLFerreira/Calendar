@@ -43,9 +43,9 @@ class Month extends Component{
         }
 
         return(
-            <div className="container">
+            <div className="container row">
                 <div className="row">
-                    <div className="box text display-1">
+                    <div className="box border text display-1">
                         {this.state.name}
                     </div>
                 </div>
