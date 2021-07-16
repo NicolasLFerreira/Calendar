@@ -29,7 +29,7 @@ class Month extends Component{
         for(var currentDay = this.state.size; currentDay > 0; currentDay--){
             content = localStorage.getItem(currentDay)
             dayId = currentDay < 10 ? this.state.id + "0" + String(currentDay) : this.state.id + String(currentDay)
-            days.push(<Day day={currentDay} content={content} id={dayId}/>)
+            days.push(<Day month={this.state.name} day={currentDay} content={content} id={dayId}/>)
             dayId = undefined
         }
 

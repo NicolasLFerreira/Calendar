@@ -3,10 +3,7 @@ import React, {Component} from "react"
 import "../css/App.css"
 import Calendar from "./Calendar/Calendar"
 import ToolBar from "./Functionality/ToolBar"
-import Year from "./Calendar/Year"
-import Month from "./Calendar/Month"
-import MonthPagination from "./Functionality/MonthPagination"
-import Button from "./Functionality/Button"
+import EventModal from "./Calendar/EventModal"
 import logo from "../images/logo.png"
 
 const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
@@ -33,7 +30,7 @@ class App extends Component{
       <div className="row left-padding">
         <div className="col-3">
           <div className="row">
-              <img src={logo}/>
+              <img src={logo}/> 
           </div>
           {<ToolBar ids={ids} calendarRefresh={() => this.calendarRefresh()}/>}
         </div>

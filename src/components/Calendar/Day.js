@@ -1,37 +1,26 @@
-import React, {Component} from "react"
+import React from "react"
 import DayData from "./DayData"
+import EventModal from "./EventModal"
 
-class Day extends Component {
-    constructor(props){
-        super(props)
 
-        this.state = {
-            day: this.props.day,
-            id: this.props.id
+function Day(props){
+    var component = []
+    
+    if (localStorage.getItem(props.id) != null){
+        var data = JSON.parse(localStorage.getItem(props.id))
+
+        for (var index = 0; index < data.events.length; index++)
+        {
+            component.push(<li className="day-item">{data.events[index]}</li>)
         }
     }
 
-    render(){
-        var component = []
-        if (localStorage.getItem(this.state.id) != null){
-            var item = JSON.parse(localStorage.getItem(this.state.id))
-            var size = item.events.length < 5 ? item.events.length : 3
-
-            for (var index = 0; index < size; index++)
-            {
-                component.push(<DayData content={item.events[index]} index={index}/>)
-            }
-
-            if (item.events.length > 4) component.push(<DayData content="..."/>)
-        }
-
-        return(
-            <div className="col day-box border text">
-                <div className="row display-6"><p>{this.state.day}</p></div>
-                <div className="row event-text">{component}</div>
-            </div>
-        )
-    }
+    return(
+        <div className="col day-box border text">
+            <div className="row display-6">{props.month != null ? <EventModal id={props.id} day={props.day} month={props.month}/> : null}</div>
+            <ul className="row event-box overflow-auto">{component}</ul>
+        </div>
+    )
 }
 
 export default Day
