@@ -36,5 +36,11 @@ body {
 }
 
 .day-item{
-    
+    width: 127px;
+    word-wrap: break-word;
+}
+
+.event-item{
+    width: 256px;
+    word-wrap: break-word;
 }

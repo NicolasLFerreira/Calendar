@@ -34,8 +34,11 @@ function EventModal(props) {
       var data = JSON.parse(localStorage.getItem(props.id))
 
       for (var index = 0; index < data.events.length; index++){
-        component.push(<li>{data.events[index]}</li>)
+        component.push(<li className="event-item">{data.events[index]}</li>)
       }
+    }
+    else{
+      component = "No events for this day"
     }
     return component
   }

@@ -1,5 +1,4 @@
 import React from "react"
-import DayData from "./DayData"
 import EventModal from "./EventModal"
 
 
