@@ -8,10 +8,19 @@ body {
     padding-left: 15px;
 }
 
+.event-text {
+    font-size: 14px;
+}
+
 .text {
     color: white;
 }
 
 .box {
     height: 150px;
+}
+
+.day-box{
+    height: 150px;
+    width: 150px;
 }

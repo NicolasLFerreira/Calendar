@@ -1,6 +1,6 @@
 import React, {Component} from "react"
 
-class ChangeMonth extends Component{
+class MonthPagination extends Component{
     constructor(props){
         super(props)
     }
@@ -30,4 +30,4 @@ class ChangeMonth extends Component{
     }
 }
 
-export default ChangeMonth
+export default MonthPagination

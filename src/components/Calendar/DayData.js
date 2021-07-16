@@ -1,21 +1,11 @@
-import React, {Component} from "react"
+import React from "react"
 
-class DayData extends Component{
-    constructor(props){
-        super(props)
-
-        this.state = {
-
-        }
-    }
-
-    render(){
-        return(
-            <div>
-                
-            </div>
-        )
-    }
+function DayData(props){
+    return(
+        <div className="row">
+            {props.content}
+        </div>
+    )
 }
 
 export default DayData

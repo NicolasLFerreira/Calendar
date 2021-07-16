@@ -5,7 +5,7 @@ import Calendar from "./Calendar/Calendar"
 import ToolBar from "./Functionality/ToolBar"
 import Year from "./Calendar/Year"
 import Month from "./Calendar/Month"
-import ChangeMonth from "./Functionality/ChangeMonth"
+import MonthPagination from "./Functionality/MonthPagination"
 import Button from "./Functionality/Button"
 import logo from "../images/logo.png"
 
@@ -37,7 +37,9 @@ class App extends Component{
           </div>
           {<ToolBar ids={ids} calendarRefresh={() => this.calendarRefresh()}/>}
         </div>
-        {<Calendar months={months} ids={ids} size={size}/>}
+        <div className="col">
+          {<Calendar months={months} ids={ids} size={size}/>}
+        </div>
       </div>
     );
   }

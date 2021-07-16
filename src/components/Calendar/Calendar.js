@@ -1,6 +1,6 @@
 import React, {Component} from "react"
 import Year from "./Year"
-import ChangeMonth from "../Functionality/ChangeMonth"
+import MonthPagination from "../Functionality/MonthPagination"
 
 class Calendar extends Component{
     constructor(props){
@@ -21,8 +21,8 @@ class Calendar extends Component{
 
     render(){
         return(
-            <div className="col">
-                <ChangeMonth changeMonth={(index) => this.ChangeMonth(index)}/>
+            <div className="row">
+                <MonthPagination changeMonth={(index) => this.ChangeMonth(index)}/>
                 <Year yearNum={2021} monthNum={this.state.showingMonth} months={this.props.months} ids={this.props.ids} size={this.props.size}/>
             </div>
         )

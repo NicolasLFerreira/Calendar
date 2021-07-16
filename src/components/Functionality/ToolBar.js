@@ -6,11 +6,11 @@ class ToolBar extends Component{
         super(props)
 
         this.state = {
-            selectedDate: undefined,
-            selectedDay: undefined,
-            selectedMonth: undefined,
-            newId: undefined,
-            contentInput: undefined
+            selectedDate: null,
+            selectedDay: null,
+            selectedMonth: null,
+            newId: null,
+            content: null
         }
     }
 
@@ -35,20 +35,34 @@ class ToolBar extends Component{
     contentInput = (dom) => {
         this.setState(() => {
             return{
-                contentInput: document.getElementById(dom).value
+                content: document.getElementById(dom).value
             }
         })
     }
 
     // Creates a new event with the chosen content and for the chosen date and updates the calendar
     createEvent = () => {
-        localStorage.setItem(this.state.newId, this.state.contentInput)
-        this.props.calendarRefresh()
-        this.setState(() => {
-            return{
-                newId: undefined
+        if (this.state.content != null && this.state.selectedDate != null){
+            if (localStorage.getItem(this.state.newId) == null){
+                var object = {
+                    "events":[]
+                }
+                localStorage.setItem(this.state.newId, JSON.stringify(object))
             }
-        })
+            var object = JSON.parse(localStorage.getItem(this.state.newId))
+            object.events.push(this.state.content)
+
+            localStorage.setItem(this.state.newId, JSON.stringify(object))
+
+            this.props.calendarRefresh()
+            this.setState(() => {
+                return{
+                    newId: null,
+                    content: null,
+                    dateInput: null
+                }
+            })
+        }
     }
 
     // Clears an event based on the chose date and updates the calendar
