@@ -1,12 +1,19 @@
 import React from "react"
-import EventModal from "./EventModal"
+import EventListingModal from "../Event/EventListingModal"
 import EventListing from "../Event/EventListing"
 
+
 function Day(props){
+    var objectData = {
+        "id": props.id,
+        "day": props.day,
+        "month": props.month
+    }
+
     return(
         <div className="col day-box border text">
-            <div className="row display-6">{props.month != null ? <EventModal id={props.id} day={props.day} month={props.month}/> : null}</div>
-            <ul className="row event-box overflow-auto">{<EventListing id={props.id} delete={false}/>}</ul>
+            <div className="row display-6">{props.month != null ? <EventListingModal object={objectData}/> : null}</div>
+            <ul class="list-group list-group-numbered">{<EventListing id={props.id} insideModal={false}/>}</ul>
         </div>
     )
 }
