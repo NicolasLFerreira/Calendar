@@ -21,12 +21,12 @@ class Month extends Component{
         var content
         
         // The empty squares 
-        for(var fixDay = 0; fixDay < 35 - this.state.size; fixDay++){
+        for(let fixDay = 0; fixDay < 35 - this.state.size; fixDay++){
             days.push(<Day day="" content="" id={-1}/>)
         }
 
         // Creates the days
-        for(var currentDay = this.state.size; currentDay > 0; currentDay--){
+        for(let currentDay = this.state.size; currentDay > 0; currentDay--){
             content = localStorage.getItem(currentDay)
             dayId = currentDay < 10 ? this.state.id + "0" + String(currentDay) : this.state.id + String(currentDay)
             days.push(<Day month={this.state.name} day={currentDay} content={content} id={dayId}/>)
@@ -34,8 +34,8 @@ class Month extends Component{
         }
 
         // Creates the weeks
-        for(var weekIndex = 0; weekIndex <= 4; weekIndex++){
-            for(var weekDay = 1; weekDay <= 7; weekDay++){
+        for(let weekIndex = 0; weekIndex <= 4; weekIndex++){
+            for(let weekDay = 1; weekDay <= 7; weekDay++){
                 week.push(days.pop())
             }
             month.push(<div className="row">{week}</div>)

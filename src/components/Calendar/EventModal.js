@@ -1,5 +1,6 @@
 import React from "react"
 import Modal from "react-modal"
+import EventListing from "../Event/EventListing"
 
 const customStyles = {
   content: {
@@ -28,21 +29,6 @@ function EventModal(props) {
     setIsOpen(false)
   }
 
-  function showEvents() {
-    var component = []
-    if (localStorage.getItem(props.id) != null){
-      var data = JSON.parse(localStorage.getItem(props.id))
-
-      for (var index = 0; index < data.events.length; index++){
-        component.push(<li className="event-item">{data.events[index]}</li>)
-      }
-    }
-    else{
-      component = "No events for this day"
-    }
-    return component
-  }
-
   return (
     <div>
       <div class="day-button" onClick={openModal}>{props.day}</div>
@@ -55,12 +41,11 @@ function EventModal(props) {
       >
         <h2 ref={(_subtitle) => (subtitle = _subtitle)}>{props.day}, {props.month}</h2>
         <div>Event for this day:</div>
-        <ol>{showEvents()}</ol>
+        <ol>{<EventListing id={props.id} delete={true}/>}</ol>
         <div>Create new event:</div>
         <div>
-          <input placeholder="Event name"/>
+          <input placeholder="Event content"/>
           <button>Add</button>
-          <button>Delete</button>
         </div>
         <button onClick={closeModal}>close</button>
       </Modal>

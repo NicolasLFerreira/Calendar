@@ -1,5 +1,8 @@
 import React, {Component} from "react"
 import Button from "./Button"
+import dataManagement from "../Event/DataManagement"
+
+const management = new dataManagement()
 
 class ToolBar extends Component{
     constructor(props){
@@ -43,16 +46,7 @@ class ToolBar extends Component{
     // Creates a new event with the chosen content and for the chosen date and updates the calendar
     createEvent = () => {
         if (this.state.content != null && this.state.selectedDate != null){
-            if (localStorage.getItem(this.state.newId) == null){
-                var object = {
-                    "events":[]
-                }
-                localStorage.setItem(this.state.newId, JSON.stringify(object))
-            }
-            var object = JSON.parse(localStorage.getItem(this.state.newId))
-            object.events.push(this.state.content)
-
-            localStorage.setItem(this.state.newId, JSON.stringify(object))
+            management.setEvent(this.state.newId, this.state.content)
 
             this.props.calendarRefresh()
             this.setState(() => {

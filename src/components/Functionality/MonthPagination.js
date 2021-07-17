@@ -14,7 +14,7 @@ class MonthPagination extends Component{
     render(){
         var pageItems = []
         
-        for(var index = 1; index <= 12; index++){
+        for(let index = 1; index <= 12; index++){
             pageItems.push(this.pageItem(index))
         }
 
