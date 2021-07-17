@@ -11,9 +11,11 @@ function Day(props){
     }
 
     return(
-        <div className="col day-box border text">
-            <div className="row display-6">{props.month != null ? <EventListingModal object={objectData}/> : null}</div>
-            <ul class="list-group list-group-numbered">{<EventListing id={props.id} insideModal={false}/>}</ul>
+        <div className="col box border text">
+            <div className="row display-6">{props.month != null ? <EventListingModal object={objectData} refresh={props.refresh}/> : null}</div>
+            <div className="">
+                {<EventListing id={props.id} cap={"cap-sm"} insideModal={false}/>}
+            </div>
         </div>
     )
 }

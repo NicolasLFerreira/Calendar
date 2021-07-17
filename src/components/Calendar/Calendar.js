@@ -23,7 +23,7 @@ class Calendar extends Component{
         return(
             <div className="row">
                 <MonthPagination changeMonth={(index) => this.ChangeMonth(index)}/>
-                <Year yearNum={2021} monthNum={this.state.showingMonth} months={this.props.months} ids={this.props.ids} size={this.props.size}/>
+                <Year yearNum={2021} monthNum={this.state.showingMonth} months={this.props.months} ids={this.props.ids} size={this.props.size} refresh={this.props.refresh}/>
             </div>
         )
     }

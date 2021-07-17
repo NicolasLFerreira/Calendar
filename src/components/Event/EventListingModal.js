@@ -43,11 +43,14 @@ function EventListingModal(props) {
             <div className="display-1 mb-4">{props.object.day}, {props.object.month}</div>
             <div className="h4">Events for this day</div>
             <ol>
-                <EventListing id={props.object.id} insideModal={true}/>
+                <EventListing id={props.object.id} insideModal={true} cap={"cap-lg"} refresh={props.refresh}/>
             </ol>
-            <EventCreationModal object={props.object}/>
+            <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+              <EventCreationModal object={props.object} refresh={props.refresh}/>
+              <button type="button" class="btn btn-warning" onClick={closeModal}>Close</button>
+            </div>
         </div>
-        <button type="button" class="btn btn-warning" onClick={closeModal}>Close</button>
+        
       </Modal>
     </div>
   )

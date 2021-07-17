@@ -35,7 +35,7 @@ class App extends Component {
           {<ToolBar ids={ids} calendarRefresh={() => this.calendarRefresh()} />}
         </div>
         <div className="col-9">
-          {<Calendar months={months} ids={ids} size={size} />}
+          {<Calendar months={months} ids={ids} size={size} refresh={() => this.calendarRefresh()}/>}
         </div>
       </div>
     );

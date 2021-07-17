@@ -1,5 +1,6 @@
 import React from "react"
 import Modal from "react-modal"
+import DataManagement from "./DataManagement"
 
 const customStyles = {
   content: {
@@ -27,9 +28,17 @@ function ModalBase(props) {
     setIsOpen(false)
   }
 
+  function createEvent(){
+    management.addEvent(props.object.id, document.getElementById("content-input").value)
+    props.refresh()
+    closeModal()
+  }
+
+  var management = new DataManagement()
+
   return (
     <div>
-      <button type="button" class="btn btn-success" onClick={openModal}>Add Event</button>
+      <button type="button" class="btn btn-success" onClick={openModal}>New Event</button>
       <Modal
         isOpen={createModalIsOpen}
         onAfterOpen={afterOpenModal}
@@ -40,50 +49,18 @@ function ModalBase(props) {
         <div>
             <div className="display-3 mb-4">{props.object.day}, {props.object.month}</div>
             <div class="form-floating mb-3">
-                <input type="email" class="form-control" id="floatingInput" placeholder="Do groceries!"/>
+                <input type="" class="form-control" id="content-input" placeholder="Do groceries!"/>
                 <label for="floatingInput">Event</label>
             </div>
-            <div>
-                <button type="button" class="btn btn-success" onClick={() => props.object.createEvent(props.object.id)}>
-                    Create
-                </button>
+            <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+                <button type="button" class="btn btn-success" onClick={createEvent}>Save</button>
+                <button type="button" class="btn btn-warning" onClick={closeModal}>Close</button>
             </div>
         </div>
-        <button type="button" class="btn btn-warning" onClick={closeModal}>Close</button>
+        
       </Modal>
     </div>
   )
 }
 
 export default ModalBase
-
-// import React, {Component} from "react"
-
-// class EventCreationModal extends Component{
-//     constructor(props){
-//         super(props)
-
-//         this.state = {
-            
-//         }
-//     }
-
-//     render(){
-//         return(
-//             <div>
-//                 <div className="display-3 mb-4">{this.props.object.day}, {this.props.object.month}</div>
-//                 <div class="form-floating mb-3">
-//                     <input type="email" class="form-control" id="floatingInput" placeholder="Do groceries!"/>
-//                     <label for="floatingInput">Event</label>
-//                 </div>
-//                 <div>
-//                     <button type="button" class="btn btn-success" onClick={() => this.props.object.createEvent(this.props.object.id)}>
-//                         Create
-//                     </button>
-//                 </div>
-//             </div>
-//         )
-//     }
-// }
-
-// export default EventCreationModal

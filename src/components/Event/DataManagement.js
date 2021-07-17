@@ -4,7 +4,7 @@ class DataManagement{
     getEvent = (id) => JSON.parse(localStorage.getItem(id))
 
     // Adds to the localStorage or creates a new one if there's none
-    setEvent(id, content){
+    addEvent(id, content){
         var object = this.getEvent(id)
         if (object == null){
             object = {
@@ -19,8 +19,8 @@ class DataManagement{
     deleteEvent(id, index){
         var object = this.getEvent(id)
         if (object != null){
-            object.events.splice(index)
-            localStorage.setItem(JSON.stringify(object))
+            object.events.splice(index, 1)
+            localStorage.setItem(id, JSON.stringify(object))
         }
     }
 }

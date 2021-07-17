@@ -46,7 +46,7 @@ class ToolBar extends Component{
     // Creates a new event with the chosen content and for the chosen date and updates the calendar
     createEvent = () => {
         if (this.state.content != null && this.state.selectedDate != null){
-            management.setEvent(this.state.newId, this.state.content)
+            management.addEvent(this.state.newId, this.state.content)
 
             this.props.calendarRefresh()
             this.setState(() => {
