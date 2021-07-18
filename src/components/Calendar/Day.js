@@ -10,6 +10,7 @@ function Day(props){
         "month": props.month
     }
 
+    // Everything inside the individual day box
     return(
         <div className="col box border text">
             <div className="row display-6">{props.month != null ? <EventListingModal object={objectData} refresh={props.refresh}/> : null}</div>

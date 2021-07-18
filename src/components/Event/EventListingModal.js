@@ -31,7 +31,7 @@ function EventListingModal(props) {
 
   return (
     <div>
-      <div class="day-button" onClick={openModal}>{props.object.day}</div>
+      <div className="day-button" onClick={openModal}>{props.object.day}</div>
       <Modal
         isOpen={listingModalIsOpen}
         onAfterOpen={afterOpenModal}
@@ -39,15 +39,14 @@ function EventListingModal(props) {
         style={customStyles}
         contentLabel="Example Modal"
       >
-        <div>
+        <button type="button" className="btn btn-danger float-end" onClick={closeModal}>x</button>
+        <div className="">
             <div className="display-1 mb-4">{props.object.day}, {props.object.month}</div>
             <div className="h4">Events for this day</div>
-            <ol>
-                <EventListing id={props.object.id} insideModal={true} cap={"cap-lg"} refresh={props.refresh}/>
-            </ol>
-            <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+            <EventListing id={props.object.id} insideModal={true} cap={"cap-lg"} refresh={props.refresh}/>
+            <div className="btn-group-vertical" role="group" aria-label="Vertical button group">
               <EventCreationModal object={props.object} refresh={props.refresh}/>
-              <button type="button" class="btn btn-warning" onClick={closeModal}>Close</button>
+              
             </div>
         </div>
         

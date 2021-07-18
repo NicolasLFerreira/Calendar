@@ -4,10 +4,6 @@ body {
     overflow-y: hidden;
 }
 
-.left-padding{
-    padding-left: 15px;
-}
-
 .event-text {
     font-size: 14px;
 }
@@ -21,7 +17,7 @@ body {
 }
 
 .cap-sm{
-    height: 102px;
+    height: 98px;
 }
 
 .cap-lg{

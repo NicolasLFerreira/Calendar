@@ -1,14 +1,23 @@
 import React, {Component} from "react"
 import Day from "./Day"
+import DataManagement from "../Event/DataManagement"
+
+// this.state = {
+//     name: this.props.name,
+//     id: this.props.id,
+//     size: 30 + this.props.size
+// }
+
+const dataManagement = new DataManagement()
 
 class Month extends Component{
     constructor(props){
         super(props)
 
         this.state = {
-            name: this.props.name,
-            id: this.props.id,
-            size: 30 + this.props.size
+            name: JSON.parse(localStorage.getItem("properties")).name[this.props.index],
+            id: JSON.parse(localStorage.getItem("properties")).id[this.props.index],
+            size: 30 + JSON.parse(localStorage.getItem("properties")).size[this.props.index]
         }
     }
 
@@ -22,7 +31,7 @@ class Month extends Component{
         
         // The empty squares 
         for(let fixDay = 0; fixDay < 35 - this.state.size; fixDay++){
-            days.push(<Day day="" content="" id={-1}/>)
+            days.push(<Day key={fixDay - 30} day="" content="" id={-1}/>)
         }
 
         // Creates the days
@@ -43,7 +52,7 @@ class Month extends Component{
         }
 
         return(
-            <div className="container row">
+            <div className="row">
                 <div className="row">
                     <div className="box border text display-1">
                         {this.state.name}

@@ -6,9 +6,11 @@ import logo from "../images/logo.png"
 
 import "../css/App.css"
 
-const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
-const ids = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"]
-const size = [1, -2, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1]
+var object = {
+  "name": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+  "id":  ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"],
+  "size": [1, -2, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1]
+}
 
 class App extends Component {
   constructor() {
@@ -20,22 +22,21 @@ class App extends Component {
   }
 
   calendarRefresh = () => {
-    document.getElementById("input-content").value = ""
-    document.getElementById("input-date").value = ""
     this.forceUpdate()
   }
 
   render() {
+    localStorage.setItem("properties", JSON.stringify(object))
     return (
       <div className="row left-padding">
-        <div className="col-3">
+        <div className="col-2">
           <div className="row">
             <img src={logo} />
           </div>
-          {<ToolBar ids={ids} calendarRefresh={() => this.calendarRefresh()} />}
+          {<ToolBar key={0} calendarRefresh={() => this.calendarRefresh()} />}
         </div>
-        <div className="col-9">
-          {<Calendar months={months} ids={ids} size={size} refresh={() => this.calendarRefresh()}/>}
+        <div className="col">
+          {<Calendar key={1} refresh={() => this.calendarRefresh()}/>}
         </div>
       </div>
     );

@@ -9,23 +9,24 @@ function deleteItem(refresh, data){
 
 function EventItem(props){
     return(
-        <li class="list-group-item">
+        <li className={"list-group-item " + (props.insideModal ? null : "list-group-item-dark")}>
             {props.text}
             {props.insideModal ? 
-            <button type="button" class="position-absolute bottom-0 end-0 btn btn-outline-success"
-            onClick={() => deleteItem(props.refresh, props)}>
-                ✓
-            </button> : null}
+                <button type="button" className="btn btn-outline-success float-end"
+                    onClick={() => deleteItem(props.refresh, props)}>
+                    ✓
+                </button> : 
+            null}
         </li>
     )
 }
 
 function EventListing(props){
 
-    const data = management.getEvent(props.id) == null ? [] :  new DataManagement().getEvent(props.id).events
+    const data = management.getData(props.id) === null ? [] :  new DataManagement().getData(props.id).events
     var component = []
 
-    if (data.length == 0 && props.insideModal) {
+    if (data.length === 0 && props.insideModal) {
         component = <div>There are no events for today</div>
     }
     else{
