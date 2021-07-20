@@ -29,7 +29,7 @@ class ToolBar extends Component{
                     <button type="button" className="btn btn-danger" onClick={this.clearEvents}>Delete All</button>
                 </div>
                 <div className="overflow border text">
-                    <UpcomingEvents/>
+                    <UpcomingEvents refresh={this.props.calendarRefresh}/>
                 </div>
             </div>
         )
