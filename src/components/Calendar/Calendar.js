@@ -6,7 +6,7 @@ class Calendar extends Component{
         super(props)
 
         this.state = {
-            showingMonth: 1
+            showingMonth: new Date().getMonth() + 1
         }
     }
 
@@ -24,7 +24,6 @@ class Calendar extends Component{
         var pageItems = []
         for(let index = 1; index <= 12; index++){
             pageItems.push(<button type="button" className="btn btn-primary" onClick={() => this.changeMonth(index)}>Month: {index}</button>)
-            
         }
 
         return(

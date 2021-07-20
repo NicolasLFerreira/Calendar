@@ -9,7 +9,7 @@ function deleteItem(refresh, data){
 
 function EventItem(props){
     return(
-        <li className={"list-group-item " + (props.insideModal ? null : "list-group-item-dark")}>
+        <li className={"text-break list-group-item " + (props.insideModal ? null : "list-group-item-dark")}>
             {props.text}
             {props.insideModal ? 
                 <button type="button" className="btn btn-outline-success float-end"
@@ -23,7 +23,7 @@ function EventItem(props){
 
 function EventListing(props){
 
-    const data = management.getData(props.id) === null ? [] :  new DataManagement().getData(props.id).events
+    const data = management.getEvent(props.id) === null ? [] :  new DataManagement().getEvent(props.id).events
     var component = []
 
     if (data.length === 0 && props.insideModal) {

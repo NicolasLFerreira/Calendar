@@ -1,11 +1,13 @@
 import { computeHeadingLevel } from "@testing-library/react"
 import React, { Component } from "react"
 import Calendar from "./Calendar/Calendar"
-import ToolBar from "./Functionality/ToolBar"
-import logo from "../images/logo.png"
+import ToolBar from "./ToolBar"
+import DataManagement from "./Event/DataManagement"
 
+import logo from "../images/logo.png"
 import "../css/App.css"
 
+var dataManagement = new DataManagement()
 var object = {
   "name": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
   "id":  ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"],
@@ -26,9 +28,10 @@ class App extends Component {
   }
 
   render() {
-    localStorage.setItem("properties", JSON.stringify(object))
+    sessionStorage.setItem("properties", JSON.stringify(object))
     return (
       <div className="row left-padding">
+        
         <div className="col-2">
           <div className="row">
             <img src={logo} />

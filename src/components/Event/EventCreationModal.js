@@ -38,42 +38,23 @@ function EventCreationModal(props) {
   // Custom code
 
   // IF the modal was called from inside a day, uses the first case. Else, uses the last one.
-  function createEvent(){
-    if (document.getElementById("input-content").value == "" || document.getElementById("input-date").value == ""){
-      alert("Please don't leave neither of the inputs blank.")
-      return
-    }
 
-    if (props.object !== undefined){  
-      dataManagement.addEvent(props.object.id, document.getElementById("input-content").value)
-      props.refresh()
-      closeModal()
+  function createEvent(){
+    if (props.object === undefined){
+      if (inputManagement.isEmpty("input-date") || inputManagement.isEmpty("input-content")) return
+      dataManagement.addEvent(inputManagement.dateProcessor("input-date").id, document.getElementById("input-content").value)
     }
     else{
-      dataManagement.addEvent(inputManagement.dateProcessor("input-date").id, document.getElementById("input-content").value)
-      props.refresh()
-      closeModal()
-    }
+      if (inputManagement.isEmpty("input-content")) return
+      dataManagement.addEvent(props.object.id, document.getElementById("input-content").value)
+    }        
+    props.refresh()
+    closeModal()
   }
-
-  // Date title management
-  function dateTitle(){
-    if (props.object === undefined){
-      if (document.getElementById("input-date") !== null){
-        
-      }
-    }
-  }
-
-  // The date picker input
-  function datePicker() {
-    return props.object === undefined ? <input id="input-date" type="date" className="form-control mb-3 p-3" placeholder="pick a date"></input> : null
-  }
-  
 
   return (
     <div>
-      <button type="button" className="btn btn-success" onClick={openModal}>New Event</button>
+      <button type="button" className="btn btn-success mt-3" onClick={openModal}>New Event</button>
       <Modal
         isOpen={createModalIsOpen}
         onAfterOpen={afterOpenModal}
@@ -81,16 +62,17 @@ function EventCreationModal(props) {
         style={customStyles}
         contentLabel="Example Modal"
       >
-        <button type="button" className="btn btn-danger float-end mb-3" onClick={closeModal}>x</button>
-          <div id="create-event-date" className="display-3 mb-4">
-            {dateTitle()}
-          </div>
+        <button type="button" className="btn-close float-end" aria-label="Close" onClick={closeModal}></button>
+        <div>
+          <div className="display-3">Create a new event</div>
+          <div>Fill everything before creating it</div>
           <div className="form-floating mb-3">
               <input id="input-content" type="text" className="form-control" placeholder="Do groceries!"/>
-              <label for="floatingInput" className="mt-4">Event</label>
+              <label htmlFor="floatingInput">Event</label>
           </div>
-          {datePicker()}
-          <button type="button" className="btn btn-success" onClick={createEvent}>Save</button>        
+          <input id="input-date" type="date" className="form-control mb-3 p-3" placeholder="pick a date" hidden={(props.object !== undefined)}></input>
+          <button type="button" className="btn btn-success" onClick={createEvent}>Save</button>
+        </div>
       </Modal>
     </div>
   )

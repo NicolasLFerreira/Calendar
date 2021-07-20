@@ -15,9 +15,9 @@ class Month extends Component{
         super(props)
 
         this.state = {
-            name: JSON.parse(localStorage.getItem("properties")).name[this.props.index],
-            id: JSON.parse(localStorage.getItem("properties")).id[this.props.index],
-            size: 30 + JSON.parse(localStorage.getItem("properties")).size[this.props.index]
+            name: dataManagement.getProperties("name", this.props.index),
+            size: 30 + dataManagement.getProperties("size", this.props.index),
+            id: dataManagement.getProperties("id", this.props.index)
         }
     }
 

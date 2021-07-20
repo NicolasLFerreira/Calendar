@@ -1,3 +1,7 @@
+import DataManagement from "./DataManagement"
+
+const dataManagement = new DataManagement()
+
 class InputManagement{
     dateProcessor(dom){
         var input = document.getElementById(dom).value
@@ -16,8 +20,16 @@ class InputManagement{
             "raw": input,
             "day": day,
             "month": month,
-            "id":  JSON.parse(localStorage.getItem("properties")).id[month - 1] + day
+            "id":  dataManagement.getProperties("id", month - 1) + day
         }
+    }
+
+    isEmpty(dom){
+        if (document.getElementById(dom).value == ""){
+            alert("Please don't leave nothing blank.")
+            return true
+        }
+        return false
     }
 }
 

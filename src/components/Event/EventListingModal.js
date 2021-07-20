@@ -1,4 +1,4 @@
-import React, {Component} from "react"
+import React from "react"
 import Modal from "react-modal"
 import EventListing from "./EventListing"
 import EventCreationModal from "./EventCreationModal"
@@ -31,7 +31,11 @@ function EventListingModal(props) {
 
   return (
     <div>
-      <div className="day-button" onClick={openModal}>{props.object.day}</div>
+      {props.fromUpcoming == null ?
+        <div className="day-button" onClick={openModal}>{props.object.day}</div> :
+        <button type="button" className="btn btn-primary " onClick={openModal}>{props.object.title}</button>
+        }
+      
       <Modal
         isOpen={listingModalIsOpen}
         onAfterOpen={afterOpenModal}
@@ -39,17 +43,15 @@ function EventListingModal(props) {
         style={customStyles}
         contentLabel="Example Modal"
       >
-        <button type="button" className="btn btn-danger float-end" onClick={closeModal}>x</button>
-        <div className="">
+        <button type="button" className="btn-close float-end" aria-label="Close" onClick={closeModal}></button>
+        <div>
             <div className="display-1 mb-4">{props.object.day}, {props.object.month}</div>
             <div className="h4">Events for this day</div>
             <EventListing id={props.object.id} insideModal={true} cap={"cap-lg"} refresh={props.refresh}/>
             <div className="btn-group-vertical" role="group" aria-label="Vertical button group">
               <EventCreationModal object={props.object} refresh={props.refresh}/>
-              
             </div>
         </div>
-        
       </Modal>
     </div>
   )
