@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/test/static/css/main.ebc38363.chunk.css",
-    "main.js": "/test/static/js/main.66addb69.chunk.js",
-    "main.js.map": "/test/static/js/main.66addb69.chunk.js.map",
-    "runtime-main.js": "/test/static/js/runtime-main.51beea65.js",
-    "runtime-main.js.map": "/test/static/js/runtime-main.51beea65.js.map",
-    "static/js/2.68ea984d.chunk.js": "/test/static/js/2.68ea984d.chunk.js",
-    "static/js/2.68ea984d.chunk.js.map": "/test/static/js/2.68ea984d.chunk.js.map",
-    "static/js/3.74d3df8d.chunk.js": "/test/static/js/3.74d3df8d.chunk.js",
-    "static/js/3.74d3df8d.chunk.js.map": "/test/static/js/3.74d3df8d.chunk.js.map",
-    "index.html": "/test/index.html",
-    "static/css/main.ebc38363.chunk.css.map": "/test/static/css/main.ebc38363.chunk.css.map",
-    "static/js/2.68ea984d.chunk.js.LICENSE.txt": "/test/static/js/2.68ea984d.chunk.js.LICENSE.txt",
-    "static/media/logo-black.e9b8cdd7.png": "/test/static/media/logo-black.e9b8cdd7.png"
+    "main.css": "/Calendar/static/css/main.ebc38363.chunk.css",
+    "main.js": "/Calendar/static/js/main.66addb69.chunk.js",
+    "main.js.map": "/Calendar/static/js/main.66addb69.chunk.js.map",
+    "runtime-main.js": "/Calendar/static/js/runtime-main.2034815f.js",
+    "runtime-main.js.map": "/Calendar/static/js/runtime-main.2034815f.js.map",
+    "static/js/2.68ea984d.chunk.js": "/Calendar/static/js/2.68ea984d.chunk.js",
+    "static/js/2.68ea984d.chunk.js.map": "/Calendar/static/js/2.68ea984d.chunk.js.map",
+    "static/js/3.74d3df8d.chunk.js": "/Calendar/static/js/3.74d3df8d.chunk.js",
+    "static/js/3.74d3df8d.chunk.js.map": "/Calendar/static/js/3.74d3df8d.chunk.js.map",
+    "index.html": "/Calendar/index.html",
+    "static/css/main.ebc38363.chunk.css.map": "/Calendar/static/css/main.ebc38363.chunk.css.map",
+    "static/js/2.68ea984d.chunk.js.LICENSE.txt": "/Calendar/static/js/2.68ea984d.chunk.js.LICENSE.txt",
+    "static/media/logo-black.e9b8cdd7.png": "/Calendar/static/media/logo-black.e9b8cdd7.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.51beea65.js",
+    "static/js/runtime-main.2034815f.js",
     "static/js/2.68ea984d.chunk.js",
     "static/css/main.ebc38363.chunk.css",
     "static/js/main.66addb69.chunk.js"
