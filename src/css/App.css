@@ -1,5 +1,6 @@
 body {
-    background-color: black;
+    margin-left: 5px;
+    background-color: white;
     overflow-x: hidden;
     overflow-y: hidden;
 }
@@ -9,7 +10,7 @@ body {
 }
 
 .text {
-    color: white;
+    color: black;
 }
 
 .box {

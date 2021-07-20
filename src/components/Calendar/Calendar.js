@@ -1,5 +1,8 @@
 import React, {Component} from "react"
+import DataManagement from "../Event/DataManagement"
 import Year from "./Year"
+
+const dataManagement = new DataManagement()
 
 class Calendar extends Component{
     constructor(props){
@@ -23,7 +26,7 @@ class Calendar extends Component{
     monthPagination(){
         var pageItems = []
         for(let index = 1; index <= 12; index++){
-            pageItems.push(<button type="button" className="btn btn-primary" onClick={() => this.changeMonth(index)}>Month: {index}</button>)
+            pageItems.push(<button type="button" className="btn btn-primary" onClick={() => this.changeMonth(index)}>{dataManagement.getProperties("name", index - 1)}</button>)
         }
 
         return(

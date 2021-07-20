@@ -48,11 +48,11 @@ class DataManagement{
     }
 
     // Adds or remove a day from the days with events
-    dayLog(id, action){
+    dayLog(id, isAdd){
         var idMonth = id.slice(0, 3)
         var idDay = id.slice(3, 5)
         var object = JSON.parse(localStorage.getItem("events"))
-        if (action) {
+        if (isAdd) {
             if (!object[idMonth].includes(idDay)) object[idMonth].push(idDay)
         }
         else{

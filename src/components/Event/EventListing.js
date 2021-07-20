@@ -12,9 +12,9 @@ function EventItem(props){
         <li className={"text-break list-group-item " + (props.insideModal ? null : "list-group-item-dark")}>
             {props.text}
             {props.insideModal ? 
-                <button type="button" className="btn btn-outline-success float-end"
+                <button type="button" className="btn btn-outline-danger float-end"
                     onClick={() => deleteItem(props.refresh, props)}>
-                    ✓
+                    X
                 </button> : 
             null}
         </li>

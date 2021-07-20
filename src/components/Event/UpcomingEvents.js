@@ -16,7 +16,7 @@ class UpcomingEvents extends Component{
         }
     }
 
-    localStorageItems(){
+    upcomingEventsDays(){
         var components = []
         var objectData = {}
         var events = JSON.parse(localStorage.getItem("events"))
@@ -47,7 +47,7 @@ class UpcomingEvents extends Component{
     render(){
         return(
             <div className="overflow-auto text-break text">
-                {this.localStorageItems()}
+                {this.upcomingEventsDays()}
             </div>
         )
     }

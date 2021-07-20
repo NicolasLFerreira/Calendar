@@ -41,10 +41,10 @@ function EventListingModal(props) {
         onAfterOpen={afterOpenModal}
         onRequestClose={closeModal}
         style={customStyles}
-        contentLabel="Example Modal"
+        contentLabel="Event Listing Modal"
       >
         <button type="button" className="btn-close float-end" aria-label="Close" onClick={closeModal}></button>
-        <div>
+        <div className="">
             <div className="display-1 mb-4">{props.object.day}, {props.object.month}</div>
             <div className="h4">Events for this day</div>
             <EventListing id={props.object.id} insideModal={true} cap={"cap-lg"} refresh={props.refresh}/>

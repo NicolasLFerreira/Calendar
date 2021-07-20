@@ -28,18 +28,24 @@ class Month extends Component{
 
         var dayId
         var content
+        var extraStyle
         
         // The empty squares 
         for(let fixDay = 0; fixDay < 35 - this.state.size; fixDay++){
-            days.push(<Day key={fixDay - 30} day="" content="" id={-1}/>)
+            if (fixDay == 6) extraStyle = " border-start"
+            days.push(<Day extraStyle={extraStyle} day="" content="" id={-1}/>)
         }
+        
+        extraStyle = undefined
 
         // Creates the days
         for(let currentDay = this.state.size; currentDay > 0; currentDay--){
             content = localStorage.getItem(currentDay)
             dayId = currentDay < 10 ? this.state.id + "0" + String(currentDay) : this.state.id + String(currentDay)
-            days.push(<Day month={this.state.name} day={currentDay} content={content} id={dayId} refresh={this.props.refresh}/>)
+            if ((currentDay - 1) % 7 == 0) extraStyle = " border-start"
+            days.push(<Day month={this.state.name} day={currentDay} content={content} id={dayId} extraStyle={extraStyle} refresh={this.props.refresh}/>)
             dayId = undefined
+            extraStyle = undefined
         }
 
         // Creates the weeks
@@ -51,10 +57,13 @@ class Month extends Component{
             week = []
         }
 
+        var abc = new Date()
+        console.log(abc.ot)
+
         return(
             <div className="row">
                 <div className="row">
-                    <div className="box border text display-1">
+                    <div className="box border border-dark text display-1">
                         {this.state.name}
                     </div>
                 </div>
