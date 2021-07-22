@@ -71,6 +71,22 @@ class DataManagement{
     getPropertyIndex(prop, item){
         return JSON.parse(sessionStorage.getItem("properties"))[prop].indexOf(item)
     }
+    
+    // Returns a number string with prefix in the end st/nd/rd/th
+    numberWithPrefix(num){
+        if (isNaN(num)) return undefined
+        var last = num.charAt(num.length - 1)
+        switch (last) {
+            case "1":
+                return num + "st"
+            case "2":
+                return num + "nd"
+            case "3":
+                return num + "rd"
+            default:
+                return num + "th"
+        }
+    }
 }
 
 export default DataManagement

@@ -32,7 +32,7 @@ class Month extends Component{
         
         // The empty squares 
         for(let fixDay = 0; fixDay < 35 - this.state.size; fixDay++){
-            if (fixDay == 6) extraStyle = " border-start"
+            if (fixDay == 6) extraStyle = " border-start rounded"
             days.push(<Day extraStyle={extraStyle} day="" content="" id={-1}/>)
         }
         
@@ -42,7 +42,7 @@ class Month extends Component{
         for(let currentDay = this.state.size; currentDay > 0; currentDay--){
             content = localStorage.getItem(currentDay)
             dayId = currentDay < 10 ? this.state.id + "0" + String(currentDay) : this.state.id + String(currentDay)
-            if ((currentDay - 1) % 7 == 0) extraStyle = " border-start"
+            if ((currentDay - 1) % 7 == 0) extraStyle = " border-start rounded"
             days.push(<Day month={this.state.name} day={currentDay} content={content} id={dayId} extraStyle={extraStyle} refresh={this.props.refresh}/>)
             dayId = undefined
             extraStyle = undefined
@@ -63,7 +63,7 @@ class Month extends Component{
         return(
             <div className="row">
                 <div className="row">
-                    <div className="box border border-dark text display-1">
+                    <div className="text-center calendar-box border border-dark border-2 rounded display-2">
                         {this.state.name}
                     </div>
                 </div>

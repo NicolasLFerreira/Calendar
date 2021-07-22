@@ -54,7 +54,7 @@ function EventCreationModal(props) {
 
   return (
     <div>
-      <button type="button" className="btn btn-success mt-3" onClick={openModal}>New Event</button>
+      <button type="button" className={"btn btn-success " + props.buttonClass} onClick={openModal}>New Event</button>
       <Modal
         isOpen={createModalIsOpen}
         onAfterOpen={afterOpenModal}

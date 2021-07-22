@@ -18,8 +18,8 @@ var object = {
 class App extends Component {
   constructor() {
     super()
-
     this.state = {
+
     }
   }
 
@@ -28,38 +28,36 @@ class App extends Component {
   }
 
   clearEvents = () => {
-    localStorage.clear()
-    dataManagement = new DataManagement()
-    this.calendarRefresh()
+    if (window.confirm("Are you REALLY sure about that? I'm telling you, there's simply no coming back for your dear grocery store lists...")){
+      localStorage.clear()
+      dataManagement = new DataManagement()
+      this.calendarRefresh()
+    }
   }
 
   render() {
     sessionStorage.setItem("properties", JSON.stringify(object))
     return (
-      <div className="row left-padding">
+      <div className="row left-padding text">
+        {/* The left bar of the website */}
         <div className="col-2">
           <div className="row">
             <img src={logo} />
           </div>
-          <div className="text">
-            <div role="group" className="mb-3 btn-group min-vw-25">
-                <button type="button" className="btn btn-primary">Home</button>
-                <button type="button" className="btn btn-primary">Settings</button>
-                <Help />
-            </div>
-            <div className="btn-group-vertical gap-2 mb-3" role="group" aria-label="Basic button group">
-                <EventCreationModal object={undefined} refresh={this.calendarRefresh} pickDate={() => this.dateInput()}/>
-                <button type="button" className="btn btn-danger" onClick={this.clearEvents}>Delete All</button>
-            </div>
+          <div>
+            <EventCreationModal buttonClass={"w-100"} object={undefined} refresh={this.calendarRefresh} pickDate={() => this.dateInput()}/>
+            <Help clearEvents={this.clearEvents}/>
+            
             <div className="mb-3 mt-3">
-                Today is {new Date().getUTCDate()}, {dataManagement.getProperties("name", new Date().getUTCMonth())} of {new Date().getUTCFullYear()}
+                Today is {dataManagement.numberWithPrefix("" + new Date().getUTCDate())} of {dataManagement.getProperties("name", new Date().getUTCMonth())} of {new Date().getUTCFullYear()}
             </div>
-            <div className="overflow border border-dark">
-                <div>Days with upcoming events:</div>
+            <div>Days with upcoming events:</div>
+            <div className="showing-events-box overflow border border-dark border-2 rounded">
                 <UpcomingEvents refresh={this.calendarRefresh}/>
             </div>
           </div>
         </div>
+        {/* The calendar */}
         <div className="col">
           {<Calendar key={1} refresh={() => this.calendarRefresh()}/>}
         </div>

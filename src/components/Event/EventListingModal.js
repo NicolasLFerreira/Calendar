@@ -33,7 +33,7 @@ function EventListingModal(props) {
     <div>
       {props.fromUpcoming == null ?
         <div className="day-button" onClick={openModal}>{props.object.day}</div> :
-        <button type="button" className="btn btn-primary " onClick={openModal}>{props.object.title}</button>
+        <button type="button" className="btn btn-primary" onClick={openModal}>{props.object.title}</button>
         }
       
       <Modal

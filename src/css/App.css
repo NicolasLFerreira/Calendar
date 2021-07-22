@@ -5,16 +5,16 @@ body {
     overflow-y: hidden;
 }
 
-.event-text {
-    font-size: 14px;
-}
-
 .text {
     color: black;
 }
 
-.box {
+.calendar-box {
     height: 150px;
+}
+
+.showing-events-box{
+    height: 664.67px;
 }
 
 .cap-sm{

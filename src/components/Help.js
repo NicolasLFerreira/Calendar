@@ -58,13 +58,14 @@ function HelpModal(props) {
     }
 
     return[
-      <div class="col-5 col-lg-4">
-        <div class="list-group" id="list-tab" role="tablist">
+      <div className="col-5 col-lg-4">
+        <div className="list-group" id="list-tab" role="tablist">
           {items}
+          <a className="list-group-item list-group-item-action" id="list-danger-list" data-bs-toggle="list" href="#list-danger" role="tab">Danger Zone</a>
         </div>
       </div>,
-      <div class="col-7 col-lg-8">
-        <div class="tab-content" id="list-nav-tabContent">
+      <div className="col-7 col-lg-8">
+        <div className="tab-content" id="list-nav-tabContent">
           {tabs}
         </div>
       </div>
@@ -96,7 +97,7 @@ function HelpModal(props) {
   return (
     
     <div>
-      <button type="button" className="btn btn-success mt-3" onClick={openModal}>Help</button>
+      <button type="button" className="btn btn-success w-100 mt-1" onClick={openModal}>Help</button>
       <Modal
         isOpen={createModalIsOpen}
         onAfterOpen={afterOpenModal}
@@ -106,11 +107,16 @@ function HelpModal(props) {
       >
         <button type="button" className="btn-close float-end" aria-label="Close" onClick={closeModal}></button>
         <div>
-            <div className="display-3">How to use {"<Cal-&-r/>"}</div>
-            <p className="fs-4">A quick tutorial on its functionalities</p>
-            <div class="row">
-              {buildComponent(arr)}
-            </div>
+          <div className="display-3">How to use {"<Cal-&-r/>"}</div>
+          <p className="fs-4">A quick tutorial on its functionalities</p>
+          <div className="row">
+            {buildComponent(arr)}
+          </div>
+        </div>
+        <div className="tab-pane fade" id="list-danger">
+          <div className="display-6 text-danger text-center p-5">DANGER ZONE: </div>
+          <div className="text-center">Things went south? Added <b>way</b> too many events? Have to delete <b>everything</b> for whatever reason, foreverz? Well, go ahead and do it! But be aware, because there is <span className="text-danger">no coming back, you will delete <b>EVERYTHING... FOREVER!!!</b></span></div>
+          <button type="button" className="btn btn-danger w-100 m-1" onClick={() => props.clearEvents()}>!!!Clear ALL the events!!!</button>
         </div>
       </Modal>
     </div>
