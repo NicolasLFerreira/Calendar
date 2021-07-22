@@ -75,24 +75,16 @@ function HelpModal(props) {
   var arr = [
     {
       "name":"Switch Months", 
-      "text":"In order to switch the month that is currently being shown, click on your desired month in the toolbar ontop of the calendar."
+      "text":"To change the current month being shown, click on the horizontal bar with the months' name ontop of the calendar."
     },
     {
-      "name":"Event Listing",
-      "text":"If you want to see the current events of a day, go to its month and click on the number of your desired day."
+      "name":"Listing Events",
+      "text":"You can see the events of a specific day either in its own box in the calendar or by clicking on its number, where it will open a small popup window where you can also remove or add new ones."
     },
-    // {
-    //   "name":null, 
-    //   "text":null
-    // },
-    // {
-    //   "name":null, 
-    //   "text":null
-    // },
-    // {
-    //   "name":null, 
-    //   "text":null
-    // },
+    {
+      "name":"Crete Events",
+      "text":"To create a new event, you can use the [New Event] button to the left of the calendar, or open the event listing and click on the [New Event]. The former requires you to enter a date, and the latter already has it."
+    }
   ]
   return (
     
@@ -115,8 +107,8 @@ function HelpModal(props) {
         </div>
         <div className="tab-pane fade" id="list-danger">
           <div className="display-6 text-danger text-center p-5">DANGER ZONE: </div>
-          <div className="text-center">Things went south? Added <b>way</b> too many events? Have to delete <b>everything</b> for whatever reason, foreverz? Well, go ahead and do it! But be aware, because there is <span className="text-danger">no coming back, you will delete <b>EVERYTHING... FOREVER!!!</b></span></div>
-          <button type="button" className="btn btn-danger w-100 m-1" onClick={() => props.clearEvents()}>!!!Clear ALL the events!!!</button>
+          <div className="text-center">Things went south? Added <b>way</b> too many events? Have to delete <b>everything</b> for whatever reason, forever? Well, go ahead and do it! But be aware, because there is <span className="text-danger">no coming back, you will delete <b>EVERYTHING... FOREVER!!!</b></span></div>
+          <button type="button" className="btn btn-danger w-100 m-1" onClick={() => props.clearEvents()}>Clear All Events</button>
         </div>
       </Modal>
     </div>
