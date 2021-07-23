@@ -52,7 +52,7 @@ class App extends Component {
                 Today is {dataManagement.numberWithPrefix("" + new Date().getUTCDate())} of {dataManagement.getProperties("name", new Date().getUTCMonth())} of {new Date().getUTCFullYear()}
             </div>
             <div>Days with upcoming events:</div>
-            <div className="showing-events-box overflow border border-dark border-2 rounded">
+            <div className="showing-events-box day-bg overflow border border-dark border-2 rounded">
                 <UpcomingEvents refresh={this.calendarRefresh}/>
             </div>
           </div>

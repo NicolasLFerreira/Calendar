@@ -9,7 +9,7 @@ function deleteItem(refresh, data){
 
 function EventItem(props){
     return(
-        <li className={"text-break list-group-item " + (props.insideModal ? null : "list-group-item-dark")}>
+        <li className={"text-break list-group-item " + (props.insideModal ? null : "list-item-bg")}>
             {props.text}
             {props.insideModal ? 
                 <button type="button" className="btn btn-outline-danger float-end"

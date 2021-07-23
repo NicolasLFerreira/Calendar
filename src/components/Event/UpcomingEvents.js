@@ -34,9 +34,7 @@ class UpcomingEvents extends Component{
             for (let index = 0; index <= events[id].length - 1; index++) {
                 objectData = {
                     "id": dataManagement.getProperties("id", month) + events[id][index],
-                    "day": parseInt(events[id][index]),
-                    "month": dataManagement.getProperties("name", month),
-                    "title": dataManagement.getProperties("name", month) + ", " + events[id][index]
+                    "title": dataManagement.numberWithPrefix("" + parseInt(events[id][index])) + " of " + dataManagement.getProperties("name", month)
                 }
                 components.push(<EventListingModal object={objectData} refresh={this.props.refresh} fromUpcoming={0}/>)
             }
@@ -46,7 +44,7 @@ class UpcomingEvents extends Component{
 
     render(){
         return(
-            <div className="overflow-auto text-break text">
+            <div className="overflow-auto">
                 {this.upcomingEventsDays()}
             </div>
         )

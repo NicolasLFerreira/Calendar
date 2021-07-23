@@ -64,9 +64,9 @@ function EventCreationModal(props) {
       >
         <button type="button" className="btn-close float-end" aria-label="Close" onClick={closeModal}></button>
         <div>
-          <div className="display-3">Create a new event</div>
+          <div className="display-4 mb-1">Create a new event</div>
           <div>Fill everything before creating it</div>
-          <div className="form-floating mb-3">
+          <div className="form-floating mt-3 mb-3">
               <input id="input-content" type="text" className="form-control" placeholder="Do groceries!"/>
               <label htmlFor="floatingInput">Event</label>
           </div>

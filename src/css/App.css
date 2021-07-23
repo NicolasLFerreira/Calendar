@@ -5,9 +5,25 @@ body {
     overflow-y: hidden;
 }
 
+/* Text and coloring */
+
 .text {
     color: black;
 }
+
+.month-bg{
+    background-color: #adb5bd;
+}
+
+.day-bg{
+    background-color: #ced4da;
+}
+
+.list-item-bg{
+    background-color: #dee2e6;
+}
+
+/* Boxes */
 
 .calendar-box {
     height: 150px;
@@ -24,6 +40,8 @@ body {
 .cap-lg{
     height: 250px;
 }
+
+/* Misc */
 
 .day-button{
     cursor: pointer;

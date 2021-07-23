@@ -89,7 +89,7 @@ function HelpModal(props) {
   return (
     
     <div>
-      <button type="button" className="btn btn-success w-100 mt-1" onClick={openModal}>Help</button>
+      <button type="button" className="btn btn-primary w-100 mt-1" onClick={openModal}>Help</button>
       <Modal
         isOpen={createModalIsOpen}
         onAfterOpen={afterOpenModal}

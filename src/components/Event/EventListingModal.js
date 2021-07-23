@@ -2,7 +2,9 @@ import React from "react"
 import Modal from "react-modal"
 import EventListing from "./EventListing"
 import EventCreationModal from "./EventCreationModal"
+import DataManagement from "./DataManagement"
 
+const dataManagement = new DataManagement()
 const customStyles = {
   content: {
     top: "25%",
@@ -33,7 +35,7 @@ function EventListingModal(props) {
     <div>
       {props.fromUpcoming == null ?
         <div className="day-button" onClick={openModal}>{props.object.day}</div> :
-        <button type="button" className="btn btn-primary" onClick={openModal}>{props.object.title}</button>
+        <button type="button" className="btn btn-primary" onClick={openModal}>{props.object.title}: {dataManagement.getEvent(props.object.id).events.length} event{dataManagement.getEvent(props.object.id).events.length == 1 ? "" : "s"}</button>
         }
       
       <Modal
@@ -45,7 +47,7 @@ function EventListingModal(props) {
       >
         <button type="button" className="btn-close float-end" aria-label="Close" onClick={closeModal}></button>
         <div className="">
-            <div className="display-1 mb-4">{props.object.day}, {props.object.month}</div>
+            <div className="display-3 mb-4">{props.object.day}, {props.object.month}</div>
             <div className="h4">Events for this day</div>
             <EventListing id={props.object.id} insideModal={true} cap={"cap-lg"} refresh={props.refresh}/>
             <div className="btn-group-vertical" role="group" aria-label="Vertical button group">
