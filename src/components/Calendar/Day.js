@@ -9,7 +9,7 @@ function Day(props){
     var objectData = {
         "id": props.id,
         "day": props.day,
-        "month": props.month
+        "month": dataManagement.getPropertyIndex("name", props.month)
     }
 
     // Everything inside the individual day box

@@ -75,21 +75,25 @@ function HelpModal(props) {
   var arr = [
     {
       "name":"Switch Months", 
-      "text":"To change the current month being shown, click on the horizontal bar with the months' name ontop of the calendar."
+      "text":"To change the current showing month, use the blue horizontal button bar with the name of each month on top of the calendar."
     },
     {
-      "name":"Listing Events",
-      "text":"You can see the events of a specific day either in its own box in the calendar or by clicking on its number, where it will open a small popup window where you can also remove or add new ones."
+      "name":"Event Listing",
+      "text":"To see a more detailed info on a day, click on its number. By doing that, a small window will open, with more utilities and details on events."
     },
     {
-      "name":"Crete Events",
-      "text":"To create a new event, you can use the [New Event] button to the left of the calendar, or open the event listing and click on the [New Event]. The former requires you to enter a date, and the latter already has it."
-    }
+      "name":"Create Events",
+      "text":"To create events, you can use the button on the left bar of the site or in the day window mentioned before in the Event Listing section."
+    },
+    {
+      "name":"Upcoming Events",
+      "text":"In the left bar of the site, you will have a list of the events in a ordered manner. You can click on them to open the same window with details about the day."
+    },
   ]
   return (
     
     <div>
-      <button type="button" className="btn btn-primary w-100 mt-1" onClick={openModal}>Help</button>
+      <button type="button" className="btn btn-danger w-100 mt-1" onClick={openModal}>Help</button>
       <Modal
         isOpen={createModalIsOpen}
         onAfterOpen={afterOpenModal}
@@ -107,7 +111,7 @@ function HelpModal(props) {
         </div>
         <div className="tab-pane fade" id="list-danger">
           <div className="display-6 text-danger text-center p-5">DANGER ZONE: </div>
-          <div className="text-center">Things went south? Added <b>way</b> too many events? Have to delete <b>everything</b> for whatever reason, forever? Well, go ahead and do it! But be aware, because there is <span className="text-danger">no coming back, you will delete <b>EVERYTHING... FOREVER!!!</b></span></div>
+          <div className="text-center fs-5">Things went south? Added <b>way</b> too many events? Have to delete <b>everything</b> for whatever reason, <b>forever</b>? Well, go ahead and do it! But be aware, because there is <span className="text-danger">no coming back, you will delete <b>EVERYTHING... FOREVER!!!</b></span></div>
           <button type="button" className="btn btn-danger w-100 m-1" onClick={() => props.clearEvents()}>Clear All Events</button>
         </div>
       </Modal>

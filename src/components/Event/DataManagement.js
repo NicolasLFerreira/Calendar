@@ -1,3 +1,19 @@
+var monthProperties = {
+    "name": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+    "id":  ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"],
+    "size": [1, -2, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1]
+}
+
+var weekDays = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday"
+]
+
 const months = {
     "jan":[],
     "feb":[],
@@ -64,12 +80,12 @@ class DataManagement{
 
     // Retrieves the data related to the month/day properties
     getProperties(prop, index){
-        return JSON.parse(sessionStorage.getItem("properties"))[prop][index]
+        return monthProperties[prop][index]
     }
 
     // Retrives the index of an a property element
     getPropertyIndex(prop, item){
-        return JSON.parse(sessionStorage.getItem("properties"))[prop].indexOf(item)
+        return monthProperties[prop].indexOf(item)
     }
     
     // Returns a number string with prefix in the end st/nd/rd/th
@@ -86,6 +102,13 @@ class DataManagement{
             default:
                 return num + "th"
         }
+    }
+
+    // Returns the week day string
+    weekDayName(month, day){
+        var date = new Date()
+        date.setFullYear(new Date().getUTCFullYear(), month, day)
+        return weekDays[date.getUTCDay()]
     }
 }
 

@@ -20,7 +20,8 @@ class UpcomingEvents extends Component{
         var finalComponent = []
         var objectData = {}
         var events = JSON.parse(localStorage.getItem("events"))
-        var id = dataManagement.getProperties("id", 1)
+        console.log(events)
+        var id
         
         // Runs through the local storage "events"
         for (let month = 0; month < 12; month++) {
@@ -35,7 +36,7 @@ class UpcomingEvents extends Component{
                 objectData = {
                     "id": dataManagement.getProperties("id", month) + events[id][index],
                     "day": parseInt(events[id][index]),
-                    "month": dataManagement.getProperties("name", month)
+                    "month": month
                 }
                 finalComponent.push(<EventListingModal object={objectData} refresh={this.props.refresh} fromUpcoming={0}/>)
             }

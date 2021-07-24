@@ -30,14 +30,15 @@ function EventListingModal(props) {
   function closeModal() {
     setIsOpen(false)
   }
-  
-  const title = dataManagement.numberWithPrefix("" + props.object.day) + " of " + props.object.month
+
+  const title = dataManagement.numberWithPrefix("" + props.object.day) + " of " + dataManagement.getProperties("name", props.object.month)
+  const weekDay = dataManagement.weekDayName(props.object.month, props.object.day)
 
   return (
     <div>
       {props.fromUpcoming == null ?
         <div className="day-button" onClick={openModal}>{props.object.day}</div> :
-        <button type="button" className="btn btn-primary w-100 mb-1" onClick={openModal}>{title}: {dataManagement.getEvent(props.object.id).events.length} event{dataManagement.getEvent(props.object.id).events.length == 1 ? "" : "s"}</button>
+        <button type="button" className="btn btn-primary w-100 mb-1" onClick={openModal}>{title}, {weekDay}: {dataManagement.getEvent(props.object.id).events.length} event{dataManagement.getEvent(props.object.id).events.length == 1 ? "" : "s"}</button>
 
         }
       
@@ -50,7 +51,7 @@ function EventListingModal(props) {
       >
         <button type="button" className="btn-close float-end" aria-label="Close" onClick={closeModal}></button>
         <div className="">
-            <div className="display-3 mb-4">{title}</div>
+            <div className="display-3 mb-4">{title}, {weekDay}</div>
             <div className="h4">Events for this day</div>
             <EventListing id={props.object.id} insideModal={true} cap={"cap-lg"} refresh={props.refresh}/>
             <div className="btn-group-vertical" role="group" aria-label="Vertical button group">

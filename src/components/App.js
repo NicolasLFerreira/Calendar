@@ -9,11 +9,6 @@ import logo from "../images/logo-black.png"
 import "../css/App.css"
 
 var dataManagement = new DataManagement()
-var object = {
-  "name": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
-  "id":  ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"],
-  "size": [1, -2, 1, 0, 1, 0, 1, 1, 0, 1, 0, 1]
-}
 
 class App extends Component {
   constructor() {
@@ -36,8 +31,6 @@ class App extends Component {
   }
 
   render() {
-    sessionStorage.setItem("properties", JSON.stringify(object))
-
     var today = 
     <div className="mb-3">
       Today is {dataManagement.numberWithPrefix("" + new Date().getUTCDate())} {' '}
