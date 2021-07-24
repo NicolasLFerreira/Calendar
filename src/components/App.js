@@ -37,6 +37,14 @@ class App extends Component {
 
   render() {
     sessionStorage.setItem("properties", JSON.stringify(object))
+
+    var today = 
+    <div className="mb-3">
+      Today is {dataManagement.numberWithPrefix("" + new Date().getUTCDate())} {' '}
+      of {dataManagement.getProperties("name", new Date().getUTCMonth())} {' '}
+      of {new Date().getUTCFullYear()}
+    </div>
+
     return (
       <div className="row left-padding text">
         {/* The left bar of the website */}
@@ -45,14 +53,11 @@ class App extends Component {
             <img src={logo} />
           </div>
           <div>
+            {today}
             <EventCreationModal buttonClass={"w-100"} object={undefined} refresh={this.calendarRefresh} pickDate={() => this.dateInput()}/>
             <Help clearEvents={this.clearEvents}/>
-            
-            <div className="mb-3 mt-3">
-                Today is {dataManagement.numberWithPrefix("" + new Date().getUTCDate())} of {dataManagement.getProperties("name", new Date().getUTCMonth())} of {new Date().getUTCFullYear()}
-            </div>
-            <div>Days with upcoming events:</div>
-            <div className="showing-events-box day-bg overflow border border-dark border-2 rounded">
+            <div className="fw-bold mt-3">Days with upcoming events:</div>
+            <div className="showing-events-box day-bg overflow-auto border border-dark border-2 rounded">
                 <UpcomingEvents refresh={this.calendarRefresh}/>
             </div>
           </div>

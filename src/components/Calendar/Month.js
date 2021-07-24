@@ -59,9 +59,6 @@ class Month extends Component{
             week = []
         }
 
-        var abc = new Date()
-        console.log(abc.ot)
-
         return(
             <div className="row">
                 <div className="row">

@@ -99,7 +99,7 @@ function HelpModal(props) {
       >
         <button type="button" className="btn-close float-end" aria-label="Close" onClick={closeModal}></button>
         <div>
-          <div className="display-3">How to use {"<Cal-&-r/>"}</div>
+          <div className="display-4">How to use {"<Cal-&-r/>"}</div>
           <p className="fs-4">A quick tutorial on its functionalities</p>
           <div className="row">
             {buildComponent(arr)}

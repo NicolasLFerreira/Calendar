@@ -17,7 +17,7 @@ class UpcomingEvents extends Component{
     }
 
     upcomingEventsDays(){
-        var components = []
+        var finalComponent = []
         var objectData = {}
         var events = JSON.parse(localStorage.getItem("events"))
         var id = dataManagement.getProperties("id", 1)
@@ -29,22 +29,23 @@ class UpcomingEvents extends Component{
             id = dataManagement.getProperties("id", month)
 
             if (events[id].length == 0) continue
-            
+
             // If the month is not empty, adds the days
             for (let index = 0; index <= events[id].length - 1; index++) {
                 objectData = {
                     "id": dataManagement.getProperties("id", month) + events[id][index],
-                    "title": dataManagement.numberWithPrefix("" + parseInt(events[id][index])) + " of " + dataManagement.getProperties("name", month)
+                    "day": parseInt(events[id][index]),
+                    "month": dataManagement.getProperties("name", month)
                 }
-                components.push(<EventListingModal object={objectData} refresh={this.props.refresh} fromUpcoming={0}/>)
+                finalComponent.push(<EventListingModal object={objectData} refresh={this.props.refresh} fromUpcoming={0}/>)
             }
         }
-        return components
+        return finalComponent
     }
 
     render(){
         return(
-            <div className="overflow-auto">
+            <div className="m-1">
                 {this.upcomingEventsDays()}
             </div>
         )

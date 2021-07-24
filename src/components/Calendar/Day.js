@@ -1,7 +1,9 @@
 import React from "react"
 import EventListingModal from "../Event/EventListingModal"
 import EventListing from "../Event/EventListing"
+import DataManagement from "../Event/DataManagement"
 
+var dataManagement = new DataManagement()
 
 function Day(props){
     var objectData = {
