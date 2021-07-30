@@ -5,7 +5,7 @@ import DataManagement from "../Event/DataManagement"
 
 var dataManagement = new DataManagement()
 
-function Day(props){
+function Day(props) {
     var objectData = {
         "id": props.id,
         "day": props.day,
@@ -13,10 +13,10 @@ function Day(props){
     }
 
     // Everything inside the individual day box
-    return(
-        <div className={"col calendar-box day-bg border-2 border-dark border-bottom border-end  " + props.extraStyle}>
-            <div className="row display-6">{props.month != null ? <EventListingModal object={objectData} refresh={props.refresh}/> : null}</div>
-            {<EventListing id={props.id} cap={"cap-sm"} insideModal={false}/>}
+    return (
+        <div className={"col day-bg border-2 border-dark border-bottom border-end " + props.extraStyle}>
+            <div className="row display-6">{props.month != null ? <EventListingModal object={objectData} refresh={props.refresh} /> : '-'}</div>
+            {<EventListing id={props.id} cap={"cap-sm mb-1"} insideModal={false} />}
         </div>
     )
 }

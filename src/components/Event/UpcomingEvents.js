@@ -1,12 +1,12 @@
-import React, {Component} from "react"
+import React, { Component } from "react"
 import DataManagement from "./DataManagement"
 import EventListingModal from "./EventListingModal"
 
 const dataManagement = new DataManagement()
 const today = new Date()
 
-class UpcomingEvents extends Component{
-    constructor(props){
+class UpcomingEvents extends Component {
+    constructor(props) {
         super(props)
 
         this.state = {
@@ -16,16 +16,16 @@ class UpcomingEvents extends Component{
         }
     }
 
-    upcomingEventsDays(){
+    upcomingEventsDays() {
         var finalComponent = []
         var objectData = {}
         var events = JSON.parse(localStorage.getItem("events"))
         console.log(events)
         var id
-        
+
         // Runs through the local storage "events"
         for (let month = 0; month < 12; month++) {
-            
+
             // The id of the current month
             id = dataManagement.getProperties("id", month)
 
@@ -38,14 +38,14 @@ class UpcomingEvents extends Component{
                     "day": parseInt(events[id][index]),
                     "month": month
                 }
-                finalComponent.push(<EventListingModal object={objectData} refresh={this.props.refresh} fromUpcoming={0}/>)
+                finalComponent.push(<EventListingModal object={objectData} refresh={this.props.refresh} fromUpcoming={0} />)
             }
         }
         return finalComponent
     }
 
-    render(){
-        return(
+    render() {
+        return (
             <div className="m-1">
                 {this.upcomingEventsDays()}
             </div>

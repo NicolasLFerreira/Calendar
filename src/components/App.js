@@ -11,57 +11,57 @@ import "../css/App.css"
 var dataManagement = new DataManagement()
 
 class App extends Component {
-  constructor() {
-    super()
-    this.state = {
+	constructor() {
+		super()
+		this.state = {
 
-    }
-  }
+		}
+	}
 
-  calendarRefresh = () => {
-    this.forceUpdate()
-  }
+	calendarRefresh = () => {
+		this.forceUpdate()
+	}
 
-  clearEvents = () => {
-    if (window.confirm("Are you REALLY sure about that? I'm telling you, there's simply no coming back for your dear grocery store lists...")){
-      localStorage.clear()
-      dataManagement = new DataManagement()
-      this.calendarRefresh()
-    }
-  }
+	clearEvents = () => {
+		if (window.confirm("Are you REALLY sure about that? I'm telling you, there's simply no coming back for your dear grocery store lists...")) {
+			localStorage.clear()
+			dataManagement = new DataManagement()
+			this.calendarRefresh()
+		}
+	}
 
-  render() {
-    var today = 
-    <div className="mb-3">
-      Today is {dataManagement.numberWithPrefix("" + new Date().getUTCDate())} {' '}
-      of {dataManagement.getProperties("name", new Date().getUTCMonth())} {' '}
-      of {new Date().getUTCFullYear()}
-    </div>
+	render() {
+		var today =
+			<div className="mb-3">
+				Today is {dataManagement.numberWithPrefix("" + new Date().getUTCDate())} {' '}
+				of {dataManagement.getProperties("name", new Date().getUTCMonth())} {' '}
+				of {new Date().getUTCFullYear()}
+			</div>
 
-    return (
-      <div className="row left-padding text">
-        {/* The left bar of the website */}
-        <div className="col-2">
-          <div className="row">
-            <img src={logo} />
-          </div>
-          <div>
-            {today}
-            <EventCreationModal buttonClass={"w-100"} object={undefined} refresh={this.calendarRefresh} pickDate={() => this.dateInput()}/>
-            <Help clearEvents={this.clearEvents}/>
-            <div className="fw-bold mt-3">Days with upcoming events:</div>
-            <div className="showing-events-box day-bg overflow-auto border border-dark border-2 rounded">
-                <UpcomingEvents refresh={this.calendarRefresh}/>
-            </div>
-          </div>
-        </div>
-        {/* The calendar */}
-        <div className="col">
-          {<Calendar key={1} refresh={() => this.calendarRefresh()}/>}
-        </div>
-      </div>
-    );
-  }
+		// style={{"height":"100%"}}
+
+		return (
+			<div className="row left-padding text main-height">
+				{/* The left bar of the website */}
+				<div className="col-2">
+					<div className="row">
+						<img src={logo} />
+					</div>
+					{today}
+					<EventCreationModal buttonClass={"w-100"} object={undefined} refresh={this.calendarRefresh} pickDate={() => this.dateInput()} />
+					<Help clearEvents={this.clearEvents} />
+					<div className="fw-bold mt-3">Days with upcoming events:</div>
+					<div className="day-bg overflow-auto border border-dark border-2 rounded">
+						<UpcomingEvents refresh={this.calendarRefresh} />
+					</div>
+				</div>
+				{/* The calendar */}
+				<div className="col">
+					{<Calendar key={1} refresh={() => this.calendarRefresh()} />}
+				</div>
+			</div>
+		);
+	}
 }
 
 export default App

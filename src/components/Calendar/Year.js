@@ -1,14 +1,14 @@
-import React, {Component} from "react"
+import React, { Component } from "react"
 import Month from "./Month"
 
 
-function Year(props){
+function Year(props) {
     var index = props.monthNum - 1
-    return(
+    return (
         <div>
-            <Month key={index}  
+            <Month key={index}
                 index={index}
-                refresh={props.refresh}/>
+                refresh={props.refresh} />
         </div>
     )
 }

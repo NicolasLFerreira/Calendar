@@ -1,8 +1,7 @@
 body {
     margin-left: 5px;
     background-color: white;
-    overflow-x: hidden;
-    overflow-y: hidden;
+    overflow: hidden;
 }
 
 /* Text and coloring */
@@ -11,47 +10,47 @@ body {
     color: black;
 }
 
-.month-bg{
+.month-bg {
     background-color: #adb5bd;
 }
 
-.day-bg{
+.day-bg {
     background-color: #ced4da;
 }
 
-.list-item-bg{
+.list-item-bg {
     background-color: #dee2e6;
 }
 
 /* Boxes */
 
-.calendar-box {
-    height: 150px;
+.main-height {
+    height: 100vh;
 }
 
-.showing-events-box{
-    height: 664.67px;
+.showing-events-box {
+    height: 1px;
 }
 
-.cap-sm{
-    height: 98px;
+.cap-sm {
+    height: 11vh;
 }
 
-.cap-lg{
-    height: 250px;
+.cap-lg {
+    height: 25vh;
 }
 
-.round-bottom-left{
-    border-bottom-left-radius: .25rem!important;
+.round-bottom-left {
+    border-bottom-left-radius: .25rem !important;
 }
 
-.round-bottom-right{
-    border-bottom-right-radius: .25rem!important;
+.round-bottom-right {
+    border-bottom-right-radius: .25rem !important;
 }
 
 /* Misc */
 
-.day-button{
+.day-button {
     cursor: pointer;
 }
 
@@ -59,20 +58,20 @@ body {
 
 /* Width */
 ::-webkit-scrollbar {
-  width: 10px;
+    width: 10px;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+    background: #f1f1f1;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #888;
+    background: #888;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+    background: #555;
 }
