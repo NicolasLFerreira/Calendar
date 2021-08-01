@@ -56,7 +56,7 @@ class Month extends Component {
         return (
             <div className="row">
                 <div className="row">
-                    <div className="text-center calendar-box month-bg border border-dark border-2 rounded-top display-2">
+                    <div className="text-center month-bg border border-dark border-2 rounded-top display-3 pb-3">
                         {this.state.name}
                     </div>
                 </div>
