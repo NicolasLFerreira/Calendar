@@ -33,9 +33,9 @@ class App extends Component {
 	render() {
 		var today =
 			<div className="mb-3">
-				Today is {dataManagement.numberWithPrefix("" + new Date().getUTCDate())} {' '}
-				of {dataManagement.getProperties("name", new Date().getUTCMonth())} {' '}
-				of {new Date().getUTCFullYear()}
+				Today is {dataManagement.numberWithPrefix("" + new Date().getDate())} {' '}
+				of {dataManagement.getProperties("name", new Date().getMonth())} {' '}
+				of {new Date().getFullYear()}
 			</div>
 
 		// style={{"height":"100%"}}
