@@ -107,8 +107,8 @@ class DataManagement {
     // Returns the week day string
     weekDayName(month, day) {
         var date = new Date()
-        date.setFullYear(new Date().getUTCFullYear(), month, day)
-        return weekDays[date.getUTCDay()]
+        date.setFullYear(new Date().getFullYear(), month, day)
+        return weekDays[date.getDay()]
     }
 }
 
