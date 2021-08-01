@@ -54,7 +54,7 @@ class Month extends Component {
         }
 
         return (
-            <div className="row">
+            <div className="row h-100">
                 <div className="row">
                     <div className="text-center month-bg border border-dark border-2 rounded-top display-3 pb-3">
                         {this.state.name}

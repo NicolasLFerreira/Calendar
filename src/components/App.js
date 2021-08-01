@@ -43,7 +43,7 @@ class App extends Component {
 		return (
 			<div className="row left-padding text main-height">
 				{/* The left bar of the website */}
-				<div className="col-2">
+				<div className="col-2 h-100">
 					<div className="row">
 						<img src={logo} />
 					</div>
@@ -51,12 +51,12 @@ class App extends Component {
 					<EventCreationModal buttonClass={"w-100"} object={undefined} refresh={this.calendarRefresh} pickDate={() => this.dateInput()} />
 					<Help clearEvents={this.clearEvents} />
 					<div className="fw-bold mt-3">Days with upcoming events:</div>
-					<div className="day-bg overflow-auto border border-dark border-2 rounded">
+					<div className="day-bg overflow-auto border border-dark border-2 rounded h-100">
 						<UpcomingEvents refresh={this.calendarRefresh} />
 					</div>
 				</div>
 				{/* The calendar */}
-				<div className="col">
+				<div className="col h-100">
 					{<Calendar key={1} refresh={() => this.calendarRefresh()} />}
 				</div>
 			</div>

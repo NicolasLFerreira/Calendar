@@ -39,8 +39,8 @@ class Calendar extends Component {
     // Returns the pagination bar and the showing month of the current year
     render() {
         return (
-            <div className="row">
-                <div className="col">
+            <div className="row h-100">
+                <div className="col h-100">
                     <div className="d-flex justify-content-center p-2">
                         {this.monthPagination()}
                     </div>
