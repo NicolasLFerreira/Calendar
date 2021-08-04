@@ -14,9 +14,9 @@ function Day(props) {
 
     // Everything inside the individual day box
     return (
-        <div className={"col day-bg border-2 border-dark border-bottom border-end " + props.extraStyle}>
+        <div className={"p-2 bd-highlight day-bg border-2 border-dark border-bottom border-end " + props.extraStyle}>
             <div className="row display-6">{props.month != null ? <EventListingModal object={objectData} refresh={props.refresh} /> : '-'}</div>
-            {<EventListing id={props.id} cap={"cap-sm mb-1"} insideModal={false} />}
+            {<EventListing id={props.id} cap={"cap-sm mb-1"} insideModal={false}/>}
         </div>
     )
 }

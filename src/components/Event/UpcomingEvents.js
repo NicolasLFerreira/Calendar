@@ -46,8 +46,10 @@ class UpcomingEvents extends Component {
 
     render() {
         return (
-            <div className="m-1">
-                {this.upcomingEventsDays()}
+            <div className="h-50">
+                <div className="m-1 h-100 d-inline-block">
+                    {this.upcomingEventsDays()}
+                </div>
             </div>
         )
     }
