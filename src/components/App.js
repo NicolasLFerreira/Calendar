@@ -38,8 +38,8 @@ class App extends Component {
 				of {new Date().getFullYear()}
 			</div>
 
-		// style={{"height":"100%"}}
-
+		// for (let i = 0; i < 31; i++) dataManagement.addEvent("jun" + (i < 10 ? "0" + i : i), "abc")
+		
 		return (
 			<div className="row left-padding text main-height">
 				{/* The left bar of the website */}
