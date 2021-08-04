@@ -47,7 +47,7 @@ class UpcomingEvents extends Component {
     // day-bg overflow-auto border border-dark border-2 rounded h-100
     render() {
         return (
-            <div className="m-1 h-50 d-inline-block">
+            <div className="m-1 d-inline-block day-bg overflow-auto border border-dark border-2 rounded h-75">
                 {this.upcomingEventsDays()}
             </div>
         )
