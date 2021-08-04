@@ -47,7 +47,7 @@ class Month extends Component {
         // Creates the weeks
         for (let weekIndex = 0; weekIndex <= 4; weekIndex++) {
             for (let weekDay = 1; weekDay <= 7; weekDay++) {
-                week.push(<div className="flex-grow-1 bd-highlight">{days.pop()}</div>)
+                week.push(<div className="flex-fill bd-highlight w-100">{days.pop()}</div>)
             }
             month.push(<div className="d-flex flex-row bd-highlight">{week}</div>)
             week = []

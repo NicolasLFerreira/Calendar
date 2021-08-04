@@ -51,9 +51,7 @@ class App extends Component {
 					<EventCreationModal buttonClass={"w-100"} object={undefined} refresh={this.calendarRefresh} pickDate={() => this.dateInput()} />
 					<Help clearEvents={this.clearEvents} />
 					<div className="fw-bold mt-3">Days with upcoming events:</div>
-					<div className="day-bg overflow-auto border border-dark border-2 rounded h-100">
-						<UpcomingEvents refresh={this.calendarRefresh} />
-					</div>
+					<UpcomingEvents refresh={this.calendarRefresh} />
 				</div>
 				{/* The calendar */}
 				<div className="col h-100">
