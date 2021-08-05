@@ -78,6 +78,16 @@ class DataManagement {
         localStorage.setItem("events", JSON.stringify(object))
     }
 
+    // Checks if the days with events array is empty
+
+    dayEventsIsEmpty(){
+        var object = JSON.parse(localStorage.getItem("events"))
+        for (let i = 0; i < 12; i++) {
+            if (object[this.getProperties("id", i)].length > 0) return false
+        }
+        return true
+    }
+
     // Retrieves the data related to the month/day properties
     getProperties(prop, index) {
         return monthProperties[prop][index]
